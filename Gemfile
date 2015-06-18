@@ -20,6 +20,7 @@ gem 'devise'
 gem 'simple_form'
 gem "paperclip", "~> 4.2"
 gem "omniauth-google-oauth2"
+gem "w_flow"
 
 group :development, :test do
   gem 'pry'
