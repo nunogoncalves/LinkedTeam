@@ -66,3 +66,7 @@ table.month {
 td {
   height: 15px;
 }
+
+.vacation_selected {
+  background-color: yellow;
+}

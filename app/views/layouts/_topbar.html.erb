@@ -1,6 +1,6 @@
 <div style="width: 100%; height: 20px; background-color: #3498db;">
   <a href="/">Início</a>
   <a href="<%= users_path %>"> Colaboradores</a>
-  <a href="<%= user_path(User.first) %>">Meu perfil</a>
+  <a href="<%= user_path(current_user) %>">Meu perfil</a>
   <a href="/logout">Sair</a>
 </div>

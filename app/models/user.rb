@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
   end
 
   belongs_to :team
+  has_many :vacations
 
   def name
     "#{first_name} #{last_name}"

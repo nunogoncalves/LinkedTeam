@@ -1,3 +1,5 @@
+<button onclick="$.calendar.toggleMode(this); console.log($.calendar.mode)">Ver</button>
+
 <% beggining_of_month = DateTime.new(@date.year, month_ord, 1) %>
 <% num_days_in_month = beggining_of_month.end_of_month.day %>
 <% num_days_prev_month = (beggining_of_month -1.day).day %>
@@ -44,9 +46,13 @@
             <% temp_current_day_of_month = num_days_prev_month - (-temp_current_day_of_month) %>
           <% end %>
 
-
-          <td class="<%= classes %>">
-            <div class="md-trigger" data-modal="modal-1" onclick="openModel(this)">
+          <% date = beggining_of_month %>
+          <% date = date + 1.month if current_day_of_month > num_days_in_month  %>
+          <% date = date - 1.month if current_day_of_month < 0  %>
+          <% month = date.month %>
+          <% year = date.year %>
+          <td class="<%= classes %>" onclick="$.calendar.dayClicked(this)" data-date='<%= "#{year} - #{month} - #{temp_current_day_of_month}" %>' data-year="<%= year %>" data-month="<%= month %>" data-day="<%= temp_current_day_of_month %>">
+            <div class="md-trigger" data-modal="modal-1">
               <%= (temp_current_day_of_month) %>
             </div>
           </td>
@@ -57,11 +63,9 @@
   </tbody>
 </table>
 
+
 <script>
-  function openModel(dayElement) {
-    var title = $(dayElement).text() + " de " + $(dayElement).closest("div.month").find(".month_name").text()
-    $('#modal-1').find("h3").text(title)
-    // $('#modal-1').addClass('md-show md-perspective')
-    $('#modal-1').addClass('md-show')
-  }
+  $(function() {
+    $.calendar.showWantedVacationDays();
+  })
 </script>

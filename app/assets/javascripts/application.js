@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require labelauty
+//= require calendar
 //= require_tree .
