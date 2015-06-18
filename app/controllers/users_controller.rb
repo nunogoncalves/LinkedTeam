@@ -73,6 +73,7 @@ class UsersController < ApplicationController
         :colaborator_number,
         :first_name,
         :last_name,
+        :email,
         :birthdate,
         :mobile_number,
         :skype_name,

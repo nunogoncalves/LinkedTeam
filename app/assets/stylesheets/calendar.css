@@ -26,6 +26,11 @@
     border-style: solid;
 }
 
+.month_big td {
+  height: 75px;
+  width: 150px;
+}
+
 .month_name {
   color: #d35400;
 }
