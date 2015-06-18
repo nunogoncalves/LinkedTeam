@@ -7,7 +7,7 @@ module Users
 
     def setup
       flow.failure!('omniauth is nil') if omniauth.nil?
-      flow.failure!('can only logon from linkedcare.com') if invalid_hd?
+      flow.failure!('can only logon from linkedcare.com') if invalid_hosted_domain?
     end
 
     def perform
@@ -21,7 +21,7 @@ module Users
 
   protected
 
-    def invalid_hd?
+    def invalid_hosted_domain?
       omniauth['extra']['raw_info']['hd'] != 'linkedcare.com'
     end
   end

@@ -1,0 +1,5 @@
+pt:
+  layouts:
+    devise:
+      invalid_hosted_domain_title: Falha na autenticação
+      invalid_hosted_domain_text:  Só é possível autenticar com uma conta Google do domínio linkedcare.com

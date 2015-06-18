@@ -18,11 +18,11 @@
 
 <% if flash[:sign_in_failure].present? %>
 <script>
-  <% if flash[:sign_in_failure] == 'invalid_hd' %>
+  <% if flash[:sign_in_failure] == 'invalid_hosted_domain' %>
     swal({
-      title: "Are you sure?",
-      text:  "You will not be able to recover this imaginary file!",
-      type:  "warning"
+      type:  "warning",
+      title: "<%= t('.invalid_hosted_domain_title') %>",
+      text:  "<%= t('.invalid_hosted_domain_text') %>"
     });
   <% end %>
 </script>

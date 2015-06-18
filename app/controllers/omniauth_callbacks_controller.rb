@@ -5,7 +5,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if report.success?
       sign_in_and_redirect report.data.user
     else
-      flash[:sign_in_failure] = :invalid_hd
+      flash[:sign_in_failure] = 'invalid_hosted_domain'
 
       redirect_to new_user_session_path
     end

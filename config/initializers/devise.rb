@@ -245,8 +245,7 @@ Devise.setup do |config|
   config.omniauth :google_oauth2,
                   Rails.application.secrets.google_client_id,
                   Rails.application.secrets.google_client_secret,
-                  redirect_uri: 'http://localhost:3000/auth/google_oauth2/callback',
-                  hd: 'linkedcare.com'
+                  redirect_uri: 'http://localhost:3000/auth/google_oauth2/callback'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
