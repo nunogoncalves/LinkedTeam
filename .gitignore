@@ -18,3 +18,4 @@
 
 /public/system/*
 /node_modules
+/vendor
