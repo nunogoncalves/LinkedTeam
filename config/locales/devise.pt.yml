@@ -1,5 +1,3 @@
-# European Portuguese translations for devise
-
 pt:
   errors:
     messages:
@@ -17,7 +15,7 @@ pt:
       unconfirmed: 'Tem de confirmar a sua conta antes de continuar.'
       locked: 'A sua conta está bloqueada.'
       invalid: 'O endereço de e-mail ou a palavra-passe são inválidos.'
-      invalid_token: 'O "token" de autenticação Ã© inválido.'
+      invalid_token: 'O "token" de autenticação é inválido.'
       timeout: 'A sua sessão expirou, por favor autentique-se novamente para continuar.'
       inactive: 'A sua conta ainda não foi activada.'
     sessions:
@@ -38,8 +36,8 @@ pt:
       signed_up_but_inactive: 'A autenticação foi efetuada com sucesso. No entanto, não foi possÃ­vel autorizá-lo porque a sua conta ainda não está ativa.'
       signed_up_but_locked: 'A autenticação foi efetuada com sucesso. No entanto, não foi possÃ­vel autorizá-lo porque a sua conta está bloqueada.'
       updated: 'A sua conta foi atualizada com sucesso.'
-      update_needs_confirmation: 'A sua conta foi atualizada com sucesso, mas Ã© necessário verificar o seu endereço de e-mail. Por favor, consulte o seu e-mail e clique no link de confirmação para finalizar a confirmação do seu novo endereço de e-mail.'
-      destroyed: 'Adeus! A sua conta foi cancelada com sucesso. Esperamos vÃª-lo novamente em breve.'
+      update_needs_confirmation: 'A sua conta foi atualizada com sucesso, mas é necessário verificar o seu endereço de e-mail. Por favor, consulte o seu e-mail e clique no link de confirmação para finalizar a confirmação do seu novo endereço de e-mail.'
+      destroyed: 'Adeus! A sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve.'
     unlocks:
       send_instructions: 'Dentro de alguns minutos irá receber um e-mail com as instruções para desbloquear a sua conta.'
       unlocked: 'A sua conta foi desbloqueada com sucesso. Agora está autenticado.'
