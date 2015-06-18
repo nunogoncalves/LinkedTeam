@@ -5,21 +5,33 @@
 <table>
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th></th>
+      <th>Colaborator Number</th>
+      <th>Name</th>
+      <th>Mobile Number</th>
+      <th>Skype Name</th>
+      <th>Birthdate</th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @users.each do |user| %>
-      <tr>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <tr>
+      <td><%= image_tag(user.avatar.url(:thumb)) %></td>
+      <td><%= user.colaborator_number %></td>
+      <td><%= user.name %></td>
+      <td><%= user.mobile_number %></td>
+      <td><%= user.skype_name %></td>
+      <td><%= date_with_format(user.birthdate) %></td>
+      <td><%= link_to 'Show', user %></td>
+      <td><%= link_to 'edit', edit_user_path(user) %></td>
+  </tbody>
+    </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
 
 <%= link_to 'New user', new_user_path %>
