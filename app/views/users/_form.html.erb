@@ -11,6 +11,35 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= f.label :colaborator_number %><br>
+    <%= f.text_field :colaborator_number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :mobile_number %><br>
+    <%= f.text_field :mobile_number %>
+  </div>
+  <div class="field">
+    <%= f.label :skype_name %><br>
+    <%= f.text_field :skype_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :birthdate %><br>
+    <%= f.date_field :birthdate %>
+  </div>
+
+  <%= f.file_field :avatar %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

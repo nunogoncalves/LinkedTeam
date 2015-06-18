@@ -9,6 +9,7 @@ module ApplicationHelper
   end
 
   def date_with_format(date, format = '%d de %B de %Y')
+    return if date.blank?
     I18n.l(date, format: format)
   end
 

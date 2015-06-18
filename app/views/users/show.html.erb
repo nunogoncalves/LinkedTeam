@@ -2,3 +2,26 @@
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Colaborator Number</th>
+      <th>Name</th>
+      <th>Mobile Number</th>
+      <th>Skype Name</th>
+      <th>BirthDate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= image_tag @user.avatar.url(:thumb) %></td>
+      <td><%= @user.colaborator_number %></td>
+      <td><%= @user.name %></td>
+      <td><%= @user.mobile_number %></td>
+      <td><%= @user.skype_name %></td>
+      <td><%= date_with_format(@user.birthdate) %></td>
+    </tr>
+  </tbody>
+</table>
