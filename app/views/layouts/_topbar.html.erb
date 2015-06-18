@@ -2,5 +2,5 @@
   <a href="/">Início</a>
   <a href="<%= users_path %>"> Colaboradores</a>
   <a href="<%= user_path(current_user) %>">Meu perfil</a>
-  <a href="/logout">Sair</a>
+  <%= link_to "Sair", destroy_user_session_path, :method => "delete" %>
 </div>
