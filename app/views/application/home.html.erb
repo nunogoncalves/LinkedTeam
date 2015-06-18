@@ -1,7 +1,27 @@
-<a href="/?year=<%= @year - 1%>"><%= @year - 1%></a>
-d
-<%= @year %>
-<a href="/?year=<%= @year + 1 %>"><%= @year + 1%></a>
+<% if @show_year %>
+  <div>
+    <a href="/?show_year=true&year=<%= @date.year - 1%>"><%= @date.year - 1 %></a>
+    <%= @date.year %>
+    <a href="/?show_year=true&year=<%= @date.year + 1 %>"><%= @date.year + 1 %></a>
+  </div>
+<% else %>
+  <div>
+    <% previous_month = @date - 1.month %>
+    <% next_month = @date + 1.month %>
+    <a href='/?<%= "year=#{previous_month.year}&month=#{previous_month.month}" %>'><%= date_with_format(previous_month, "%B de %Y") %></a>
+    <%= date_with_format(@date, "%B de %Y") %>
+    <a href='/?<%= "year=#{next_month.year}&month=#{next_month.month}" %>'><%= date_with_format(next_month, "%B de %Y") %></a>
+  </div>
+<% end %>
+
+
+<% if @show_year %>
+  Vista anual
+  <a href="/">Vista mensal</a>
+<% else %>
+  <a href="/?show_year=true">Vista anual</a>
+  Vista Mensal
+<% end %>
 
 <input type="checkbox" data-labelauty="|"/>
 <script>
@@ -11,29 +31,15 @@ d
     });
   })
 </script>
-<div class="trimester">
-  <% (1..4).to_a.each do |month_ord| %>
-    <div class="month">
-      <%= render "month", month_ord: month_ord %>
-    </div>
-  <% end %>
-</div>
 
-<div class="trimester">
-  <% (5..8).to_a.each do |month_ord| %>
-    <div class="month">
-      <%= render "month", month_ord: month_ord %>
-    </div>
-  <% end %>
-</div>
 
-<div class="trimester">
-  <% (9..12).to_a.each do |month_ord| %>
-    <div class="month">
-      <%= render "month", month_ord: month_ord %>
-    </div>
-  <% end %>
-</div>
+<% if @show_year %>
+  <%= render 'year' %>
+<% else %>
+  <% @year = @date.year %>
+  <%= render 'month_big', month_ord: @date.month %>
+<% end %>
+
 
 <div class="md-overlay"></div>
 

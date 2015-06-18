@@ -1,0 +1,25 @@
+<div class="year_container">
+  <div class="trimester">
+    <% (1..4).to_a.each do |month_ord| %>
+      <div class="month">
+        <%= render "month", month_ord: month_ord %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="trimester">
+    <% (5..8).to_a.each do |month_ord| %>
+      <div class="month">
+        <%= render "month", month_ord: month_ord %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="trimester">
+    <% (9..12).to_a.each do |month_ord| %>
+      <div class="month">
+        <%= render "month", month_ord: month_ord %>
+      </div>
+    <% end %>
+  </div>
+</div>
