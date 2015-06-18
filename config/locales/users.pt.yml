@@ -1,0 +1,16 @@
+pt:
+  activerecord:
+      errors:
+        models:
+          user:
+            attributes:
+              user_invitation:
+      attributes:
+        user:
+          colaborator_number: "Nº Colaborador"
+          first_name: "Nome"
+          last_name: "Apelido"
+          email: "Email"
+          mobile_number: "Telemóvel"
+          skype_name: "Skype"
+          birthdate: "Data de Nascimento"

@@ -77,6 +77,7 @@ class UsersController < ApplicationController
         :birthdate,
         :mobile_number,
         :skype_name,
+        :team_id,
         :avatar
       ]
 

@@ -1,8 +1,8 @@
 <% if @show_year %>
   <div>
-    <a href="/?show_year=true&year=<%= @year - 1%>"><%= @year - 1 %></a>
-    <%= @year %>
-    <a href="/?show_year=true&year=<%= @year + 1 %>"><%= @year + 1 %></a>
+    <a href="/?show_year=true&year=<%= @date.year - 1%>"><%= @date.year - 1 %></a>
+    <%= @date.year %>
+    <a href="/?show_year=true&year=<%= @date.year + 1 %>"><%= @date.year + 1 %></a>
   </div>
 <% else %>
   <div>

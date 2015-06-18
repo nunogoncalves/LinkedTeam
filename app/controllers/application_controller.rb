@@ -5,12 +5,13 @@ class ApplicationController < ActionController::Base
 
 
   def home
-    @year = params[:year].try(:to_i) || DateTime.new(DateTime.now.year, 1, 1).year
-    if params[:year].blank? || params[:month].blank?
-      @date = DateTime.now
-    else
-      @date = DateTime.new(params[:year].to_i, params[:month].to_i, 1) rescue DateTime.now
-    end
+    today = DateTime.now
+    year = params[:year].try(:to_i) || today.year
+    month = params[:month].try(:to_i) || today.month
+    day = today.day
+
+    @date = DateTime.new(year, month, day)
+
     @show_year = params[:show_year] || false
   end
 

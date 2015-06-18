@@ -6,11 +6,11 @@
   <thead>
     <tr>
       <th></th>
-      <th>Colaborator Number</th>
-      <th>Name</th>
-      <th>Mobile Number</th>
-      <th>Skype Name</th>
-      <th>Birthdate</th>
+      <th>Nº Colaborador</th>
+      <th>Nome</th>
+      <th>Telemóvel</th>
+      <th>Skype</th>
+      <th>Data Nascimento</th>
       <th></th>
       <th></th>
     </tr>
@@ -19,14 +19,14 @@
   <tbody>
     <% @users.each do |user| %>
     <tr>
-      <td><%= image_tag(user.avatar.url(:thumb)) %></td>
+      <td><img style="height: 30px; height: 30px;" src="<%= user.avatar.url(:thumb) %>"></td>
       <td><%= user.colaborator_number %></td>
       <td><%= user.name %></td>
       <td><%= user.mobile_number %></td>
       <td><%= user.skype_name %></td>
       <td><%= date_with_format(user.birthdate) %></td>
-      <td><%= link_to 'Show', user %></td>
-      <td><%= link_to 'edit', edit_user_path(user) %></td>
+      <td><%= link_to 'Ver', user %></td>
+      <td><%= link_to 'Editar', edit_user_path(user) %></td>
   </tbody>
     </tr>
     <% end %>
@@ -34,4 +34,4 @@
 </table>
 
 
-<%= link_to 'New user', new_user_path %>
+<%= link_to 'Adicionar Novo', new_user_path %>

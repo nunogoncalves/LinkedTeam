@@ -1,4 +1,4 @@
-<% beggining_of_month = DateTime.new(@year, month_ord, 1) %>
+<% beggining_of_month = DateTime.new(@date.year, month_ord, 1) %>
 <% num_days_in_month = beggining_of_month.end_of_month.day %>
 <% num_days_prev_month = (beggining_of_month -1.day).day %>
 <% month_num = month_number(beggining_of_month) %>
