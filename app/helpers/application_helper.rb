@@ -8,6 +8,10 @@ module ApplicationHelper
     current_year == year && month == current_month && current_day == day
   end
 
+  def date_with_format(date, format = '%d de %B de %Y')
+    I18n.l(date, format: format)
+  end
+
   def month_name(date)
     I18n.l(date, format: "%B")
   end
