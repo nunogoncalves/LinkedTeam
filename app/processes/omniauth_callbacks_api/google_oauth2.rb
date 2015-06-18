@@ -2,6 +2,6 @@ module OmniauthCallbacksApi
   class GoogleOauth2
     include WFlow::Process
 
-    execute Users::FromOmniauth
+    execute Users::FindOrCreateFromOmniauth
   end
 end

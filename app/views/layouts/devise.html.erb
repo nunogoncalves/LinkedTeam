@@ -15,3 +15,15 @@
 
 </body>
 </html>
+
+<% if flash[:sign_in_failure].present? %>
+<script>
+  <% if flash[:sign_in_failure] == 'invalid_hd' %>
+    swal({
+      title: "Are you sure?",
+      text:  "You will not be able to recover this imaginary file!",
+      type:  "warning"
+    });
+  <% end %>
+</script>
+<% end %>

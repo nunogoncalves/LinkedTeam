@@ -1,0 +1,57 @@
+# European Portuguese translations for devise
+
+pt:
+
+  errors:
+    messages:
+      expired: "expirou, por favor solicite uma nova"
+      not_found: "nÃ£o foi encontrado"
+      already_confirmed: "jÃ¡ foi confirmado, por favor tente efetuar a autenticaÃ§Ã£o"
+      not_locked: "nÃ£o foi bloqueado"
+      not_saved:
+        one: "1 erro impediu %{resource} de ser gravado:"
+        other: "%{count} erros impediram %{resource} de ser gravado:"
+  devise:
+    failure:
+      already_authenticated: 'JÃ¡ se encontra autenticado.'
+      unauthenticated: 'Antes de continuar tem de se autenticar ou efetuar um registo.'
+      unconfirmed: 'Tem de confirmar a sua conta antes de continuar.'
+      locked: 'A sua conta estÃ¡ bloqueada.'
+      invalid: 'O endereÃ§o de e-mail ou a palavra-passe sÃ£o invÃ¡lidos.'
+      invalid_token: 'O "token" de autenticaÃ§Ã£o Ã© invÃ¡lido.'
+      timeout: 'A sua sessÃ£o expirou, por favor autentique-se novamente para continuar.'
+      inactive: 'A sua conta ainda nÃ£o foi activada.'
+    sessions:
+      signed_in: 'AutenticaÃ§Ã£o efetuada com sucesso.'
+      signed_out: 'Saiu da sessÃ£o com sucesso.'
+    passwords:
+      send_instructions: 'Dentro de alguns minutos irÃ¡ receber um e-mail com instruÃ§Ãµes de reinicializaÃ§Ã£o da palavra-passe.'
+      updated: 'A sua palavra-passe foi alterada com sucesso. Agora estÃ¡ autenticado.'
+      updated_not_active: 'A sua palavra-passe foi alterada com sucesso.'
+      send_paranoid_instructions: 'Se o seu e-mail existir na nossa base de dados, irÃ¡ receber dentro de alguns minutos um e-mail com instruÃ§Ãµes para recuperar a sua palavra-passe.'
+    confirmations:
+      send_instructions: 'Dentro de alguns minutos irÃ¡ receber um e-mail com instruÃ§Ãµes para confirmar sua conta.'
+      send_paranoid_instructions: 'Se o seu e-mail existir na nossa base de dados, irÃ¡ receber dentro de alguns minutos um e-mail com instruÃ§Ãµes para confirmar a sua conta.'
+      confirmed: 'A sua conta foi confirmada com sucesso. Agora estÃ¡ autenticado.'
+    registrations:
+      signed_up: 'Bem-vindo! A autenticaÃ§Ã£o foi efetuada com sucesso.'
+      signed_up_but_unconfirmed: 'A mensagem com o link de confirmaÃ§Ã£o foi enviada para o seu endereÃ§o de e-mail. Por favor clique no link para ativar a sua conta.'
+      signed_up_but_inactive: 'A autenticaÃ§Ã£o foi efetuada com sucesso. No entanto, nÃ£o foi possÃ­vel autorizÃ¡-lo porque a sua conta ainda nÃ£o estÃ¡ ativa.'
+      signed_up_but_locked: 'A autenticaÃ§Ã£o foi efetuada com sucesso. No entanto, nÃ£o foi possÃ­vel autorizÃ¡-lo porque a sua conta estÃ¡ bloqueada.'
+      updated: 'A sua conta foi atualizada com sucesso.'
+      update_needs_confirmation: 'A sua conta foi atualizada com sucesso, mas Ã© necessÃ¡rio verificar o seu endereÃ§o de e-mail. Por favor, consulte o seu e-mail e clique no link de confirmaÃ§Ã£o para finalizar a confirmaÃ§Ã£o do seu novo endereÃ§o de e-mail.'
+      destroyed: 'Adeus! A sua conta foi cancelada com sucesso. Esperamos vÃª-lo novamente em breve.'
+    unlocks:
+      send_instructions: 'Dentro de alguns minutos irÃ¡ receber um e-mail com as instruÃ§Ãµes para desbloquear a sua conta.'
+      unlocked: 'A sua conta foi desbloqueada com sucesso. Agora estÃ¡ autenticado.'
+      send_paranoid_instructions: 'Se a sua conta existir, irÃ¡ receber dentro de alguns minutos um e-mail com instruÃ§Ãµes para a desbloquear.'
+    omniauth_callbacks:
+      success: 'Autenticado com sucesso a partir da conta %{kind}.'
+      failure: 'NÃ£o foi possÃ­vel autenticÃ¡-lo a partir da conta %{kind} porque "%{reason}".'
+    mailer:
+      confirmation_instructions:
+        subject: 'InstruÃ§Ãµes de confirmaÃ§Ã£o'
+      reset_password_instructions:
+        subject: 'InstruÃ§Ãµes de recuperaÃ§Ã£o da palavra-passe'
+      unlock_instructions:
+        subject: 'InstruÃ§Ãµes de desbloqueio'

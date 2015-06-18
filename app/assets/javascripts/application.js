@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require labelauty
 //= require calendar
+//= require sweetalert
 //= require_tree .

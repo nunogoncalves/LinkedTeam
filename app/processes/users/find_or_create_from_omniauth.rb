@@ -1,12 +1,13 @@
 module Users
-  class FromOmniauth
+  class FindOrCreateFromOmniauth
     include WFlow::Process
 
     data_reader :omniauth
     data_writer :user
 
     def setup
-      flow.failure! if omniauth.nil?
+      flow.failure!('omniauth is nil') if omniauth.nil?
+      flow.failure!('can only logon from linkedcare.com') if invalid_hd?
     end
 
     def perform
@@ -16,6 +17,12 @@ module Users
         u.email    = omniauth.info.email
         u.password = Devise.friendly_token[0,20]
       end
+    end
+
+  protected
+
+    def invalid_hd?
+      omniauth['extra']['raw_info']['hd'] != 'linkedcare.com'
     end
   end
 end
