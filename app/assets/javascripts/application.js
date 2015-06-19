@@ -16,4 +16,5 @@
 //= require labelauty
 //= require calendar
 //= require sweetalert
+//= require handlebars
 //= require_tree .

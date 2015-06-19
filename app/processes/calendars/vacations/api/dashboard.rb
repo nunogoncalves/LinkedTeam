@@ -3,8 +3,6 @@ module Calendars
     module Api
       class Dashboard
         include WFlow::Process
-
-        execute Load
       end
     end
   end
