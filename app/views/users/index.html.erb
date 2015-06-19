@@ -1,37 +1,43 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing users</h1>
+<div class="users_bg">
+  <h1>Listing users</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Nº Colaborador</th>
-      <th>Nome</th>
-      <th>Telemóvel</th>
-      <th>Skype</th>
-      <th>Data Nascimento</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+  <table class="users_list">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Nº Colaborador</th>
+        <th>Nome</th>
+        <th>Telemóvel</th>
+        <th>Skype</th>
+        <th>Data Nascimento</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
 
-  <tbody>
-    <% @users.each do |user| %>
-    <tr>
-      <td><img style="height: 30px; height: 30px;" src="<%= user.avatar.url(:thumb) %>"></td>
-      <td><%= user.colaborator_number %></td>
-      <td><%= user.name %></td>
-      <td><%= user.mobile_number %></td>
-      <td><%= user.skype_name %></td>
-      <td><%= date_with_format(user.birthdate) %></td>
-      <td><%= link_to 'Ver', user %></td>
-      <td><%= link_to 'Editar', edit_user_path(user) %></td>
-  </tbody>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+    <tbody>
+      <% @users.each do |user| %>
+      <tr class="user_detail">
+        <td class="user_photo_detaill" style ="background-image: url('<%= user.avatar.url(:thumb) %>');">
+        </td>
+        <td><%= user.colaborator_number %></td>
+        <td><%= user.name %></td>
+        <td><%= user.mobile_number %></td>
+        <td><%= user.skype_name %></td>
+        <td><%= date_with_format(user.birthdate) %></td>
+      <!--   <td><%#= link_to 'Ver', user %></td>
+        <td><%#= link_to 'Editar', edit_user_path(user) %></td> -->
+    </tbody>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 
 
-<%= link_to 'Adicionar Novo', new_user_path %>
+
+<!--   <%#= link_to 'Adicionar Novo', new_user_path %> -->
+
+
+</div>
