@@ -3,14 +3,18 @@
 
   if (window.Vboard !== undefined) { return; }
 
-  window.Vboard = function(element) {
-    this.element = element;
-  }
+  window.Vboard = function(element, options) {
+    this.element  = element;
+    this.$element = $(element);
+    this.options  = options;
+  };
 
   var VboardFunctions = {
-    init: function(options) {
-
-    },
+    init: function() {
+      // this.$element
+      //     .addClass('vboard-container')
+      //     .append()
+    }
   };
 
   $.extend(window.Vboard.prototype, VboardFunctions);
@@ -19,7 +23,7 @@
     if (this.length == 0) { return this; }
 
     return this.each(function() {
-      new window.Vboard(this).init(options);
+      new window.Vboard(this, options).init();
     });
   };
 })(jQuery);

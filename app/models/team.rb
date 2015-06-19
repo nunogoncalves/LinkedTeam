@@ -11,4 +11,6 @@ class Team < ActiveRecord::Base
            through: :team_managers,
            source:  :user
 
+  scope :managed_by, ->(user) { includes(:managers).where(users: { id: user.id }) }
+
 end
