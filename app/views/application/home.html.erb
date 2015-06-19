@@ -6,13 +6,15 @@
 	</div>
 </div>
 
-<%= render 'date_navigations' %>
+<div id="date_view_container">
+  <%= render 'date_navigations' %>
 
-<% if @home_presenter.year_view? %>
-  <%= render 'year_view' %>
-<% else %>
-  <%= render 'month_view', month_ord: @home_presenter.month %>
-<% end %>
+  <% if @home_presenter.year_view? %>
+    <%= render 'year_view' %>
+  <% else %>
+      <%= render 'month_view', month_ord: @home_presenter.month %>
+  <% end %>
+</div>
 
 <script>
   $(function() {

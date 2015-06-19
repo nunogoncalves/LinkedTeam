@@ -1,37 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>LinkedTeam</title>
-  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <%= render 'layouts/topbar' %>
+  <head>
+    <title>LinkedTeam</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= render 'layouts/topbar' %>
 
-  <div>
-    <%= yield %>
-  </div>
+    <div>
+      <%= yield %>
+    </div>
 
-
-
-	<div class="md-overlay"></div>
-
-	<div class="md-modal md-effect-1 md-perspective" id="modal-1">
-	  <div class="md-content">
-	    <h3>Modal Dialog</h3>
-	    <div>
-	      <p>This is a modal window. You can do the following things with it:</p>
-	      <ul>
-	        <li><strong>Read:</strong> Modal windows will probably tell you something important so don't forget to read what it says.</li>
-	        <li><strong>Look:</strong> modal windows enjoy a certain kind of attention; just look at it and appreciate its presence.</li>
-	        <li><strong>Close:</strong> click on the button below to close the modal.</li>
-	      </ul>
-	      <button class="md-close" onclick="$('#modal-1').removeClass('md-show md-perspective')">Close me!</button>
-	    </div>
-	  </div>
-	</div>
-
-</body>
+  </body>
 </html>

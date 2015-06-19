@@ -8,9 +8,13 @@ $.calendar = {
     if ($.calendar.mode == "view") {
       $.calendar.mode = "edit"
       $(element).text("Edit")
+      $("#date_view_container").addClass("edit_mode")
+      $("#date_view_container").removeClass("view_mode")
     } else {
       $.calendar.mode = "view"
       $(element).text("View")
+      $("#date_view_container").addClass("view_mode")
+      $("#date_view_container").removeClass("edit_mode")
     }
   },
 
@@ -20,7 +24,7 @@ $.calendar = {
     var dateStr = $daySquare.data("year") + " - " + $daySquare.data("month") + " - " + $daySquare.data("day");
 
     if (_this.mode == 'view') {
-      _this.showDayDetails($daySquare);
+      // _this.showDayDetails($daySquare);
     } else {
       if ($daySquare.hasClass("vacation_day_selected")) {
         $daySquare.removeClass("vacation_day_selected");
@@ -33,9 +37,6 @@ $.calendar = {
   },
 
   showDayDetails: function($daySquare) {
-    var title = $daySquare.text() + " de " + $daySquare.closest("div.month").find(".month_name").text();
-    $('#modal-1').find("h3").text(title);
-    $('#modal-1').addClass('md-show');
   },
 
 
