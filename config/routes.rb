@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :users
 
   namespace :calendars, only: [:create] do
-    resources :vacations, only: [:create]
+    resources :vacations, only: [:index, :create]
     scope '/vacations' do
       get 'dashboard' => 'vacations#dashboard', as: :vacations_dashboard
     end

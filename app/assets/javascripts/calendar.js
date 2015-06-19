@@ -25,7 +25,6 @@ $.calendar = {
   dayClicked: function(dayElement) {
     var _this = $.calendar
     var $daySquare = $(dayElement);
-    // var dateStr = $daySquare.data("year") + " - " + $daySquare.data("month") + " - " + $daySquare.data("day");
     var dateStr = $daySquare.data("date");
     console.log(dateStr);
     if (_this.mode == 'edit') {
@@ -87,7 +86,25 @@ $.calendar = {
         vacations: $.calendar.selectedDays
       },
       success: function() {
-        console.log("success");
+        $.calendar.toggleMode();
+        debugger
+        // $(".vacation_selected").removeClass("vacation_selected").parent().addClass("day_vacation_users");
+
+        $.each($(".vacation_selected"), function(index, $td) {
+          var users_already_in_day = $td.find(".day_vacation_users").length
+          if (users_already_in_day > 0) {
+            console.log(users_already_in_day)
+          } else {
+            console.log(users_already_in_day)
+            // $td.html()'<div class="day_vacation_users" style="display: none" data-users_count="<%= vacations.length %>">'+
+          // <% vacations.each do |vacation| %>
+          //   <div class="member_name"><%= vacation.user.name %></div>
+          // <% end %>
+          // </div>
+
+          }
+
+        })
       },
       error: function() {
         console.log("error");

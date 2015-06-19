@@ -45,14 +45,16 @@
           <% end %>
 
           <td class="<%= classes %>" onclick="$.calendar.dayClicked(this);" data-date="<%= date_with_format(@home_presenter.date_for_current_day_of_month(current_day_of_month), '%Y-%m-%d') %>">
-            <% if has_vacations_in_day %>
-              <% vacations = @home_presenter.vacations_in_day(current_day_of_month) %>
-              <div class="day_vacation_users" style="display: none" data-users_count="<%= vacations.length %>">
-              <% vacations.each do |vacation| %>
-                <div class="member_name"><%= vacation.user.name %></div>
+            <div class="vacations_of_day_container">
+              <% if has_vacations_in_day %>
+                <% vacations = @home_presenter.vacations_in_day(current_day_of_month) %>
+                <div class="day_vacation_users" style="display: none" data-users_count="<%= vacations.length %>">
+                <% vacations.each do |vacation| %>
+                  <div class="member_name"><%= vacation.user.name %></div>
+                <% end %>
+                </div>
               <% end %>
-              </div>
-            <% end %>
+            </div>
             <div class="month_day_number">
               <%= temp_current_day_of_month %>
             </div>
