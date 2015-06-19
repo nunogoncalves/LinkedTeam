@@ -3,7 +3,7 @@
 <div class="users_bg">
   <div class="user_top_bg">
     <div class="user_top_img"></div>
-    <h1>Listing users</h1>
+    <h1>Colaboradores</h1>
   </div>
   <table class="users_list">
     <thead>
@@ -11,6 +11,7 @@
         <th></th>
         <th>Nº Colaborador</th>
         <th>Nome</th>
+        <th>Email</th>
         <th>Telemóvel</th>
         <th>Skype</th>
         <th>Data Nascimento</th>
@@ -26,6 +27,7 @@
         </td>
         <td><%= user.colaborator_number %></td>
         <td><%= user.name %></td>
+        <td><%= user.email %></td>
         <td><%= user.mobile_number %></td>
         <td><%= user.skype_name %></td>
         <td><%= date_with_format(user.birthdate) %></td>

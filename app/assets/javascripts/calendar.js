@@ -8,15 +8,15 @@ $.calendar = {
     if ($.calendar.mode == "view") {
       $.calendar.mode = "edit"
       $(element).text("x")
-      $(element).addClass("edit_mode"); 
-      $(element).removeClass("view_mode"); 
+      $(element).addClass("edit_mode");
+      $(element).removeClass("view_mode");
       $("#date_view_container").addClass("edit_mode")
       $("#date_view_container").removeClass("view_mode")
     } else {
       $.calendar.mode = "view"
       $(element).text("+")
-      $(element).removeClass("edit_mode"); 
-      $(element).addClass("view_mode"); 
+      $(element).removeClass("edit_mode");
+      $(element).addClass("view_mode");
       $("#date_view_container").addClass("view_mode")
       $("#date_view_container").removeClass("edit_mode")
     }
@@ -56,8 +56,7 @@ $.calendar = {
         $(".days_info").css("visibility", "hidden");
       }
     }
-    var outHandler = function() {
-    }
+    var outHandler = function() {}
 
     $(".day").hover(inHandler, outHandler)
   },
@@ -80,7 +79,7 @@ $.calendar = {
     });
   },
 
-  submitDays: function() {
+  submitVacations: function() {
     _this.selectedDays = [];
   }
 }
