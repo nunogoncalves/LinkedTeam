@@ -4,7 +4,7 @@ module Calendars
       class Dashboard
         include WFlow::Process
 
-        execute
+        execute Load
       end
     end
   end
