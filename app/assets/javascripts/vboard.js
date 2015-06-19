@@ -11,9 +11,8 @@
 
   var VboardFunctions = {
     init: function() {
-      // this.$element
-      //     .addClass('vboard-container')
-      //     .append()
+      this.$element
+          .addClass('vboard-container');
     }
   };
 

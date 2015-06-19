@@ -3,6 +3,8 @@ module Calendars
     module Api
       class Dashboard
         include WFlow::Process
+
+        execute Teams::FindManagedByUser
       end
     end
   end
