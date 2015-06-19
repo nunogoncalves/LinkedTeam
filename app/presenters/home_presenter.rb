@@ -75,7 +75,17 @@ class HomePresenter < ViewPresenter
   end
 
   def vacations_in_this_day?(current_day_of_month)
+    _d = date_for_vacation_check(current_day_of_month)
 
+    @vacations.each do |vacation|
+      if vacation.year == _d.year && vacation.monht == _d.month && vacation.day == _d.day
+        return true
+      end
+    end
+    false
+  end
+
+  def date_for_vacation_check(current_day_of_month)
     _d = date
     if day_before_beggining_of_month(current_day_of_month)
       _d = date - 1.month
@@ -84,12 +94,12 @@ class HomePresenter < ViewPresenter
     end
 
     day = convert_negative_n_of_day_to_previous_month_day(current_day_of_month)
-    @vacations.each do |vacation|
-      if vacation.year == _d.year && vacation.monht == _d.month && vacation.day == day
-        return true
-      end
-    end
-    false
+    DateTime.new(_d.year, _d.month, day)
+  end
+
+  def vacations_in_day(current_day_of_month)
+    _d = date_for_vacation_check(current_day_of_month)
+    @vacations.select { |v| v.date == _d }
   end
 
   def day_not_in_current_month(current_day_of_month)

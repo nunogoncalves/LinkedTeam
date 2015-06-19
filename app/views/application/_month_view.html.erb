@@ -1,5 +1,25 @@
 <button class="add_calendar" onclick="$.calendar.toggleMode(this); console.log($.calendar.mode)">Ver</button>
 <% @home_presenter.date = DateTime.new(@home_presenter.year, month_ord, 1) %>
+
+<table class="days_info" style="visibility: hidden;">
+  <thead>
+    <tr class="dmy_info">
+      <td>Nr. Colegas</td>
+    </tr>
+    <tr>
+      <td><div class="square_number">3</div></td>
+    </tr>
+    <tr class="names_space">
+      <td>
+        <div class="member_name">Joaquins de Adrazes</div>
+      </td>
+    </tr>
+  </thead>
+</table>
+
+<%= render 'month', month_ord: month_ord, month_big: true %>
+
+
 <table class="calendar_legend">
   <thead>
     <tr class="calendar_info">
@@ -11,18 +31,8 @@
   </thead>
 </table>
 
-<%= render 'month', month_ord: month_ord, month_big: true %>
-
-<table class="days_info">
-  <thead>
-    <tr class="dmy_info">
-      <td>Nr. Colegas</td>
-    </tr>
-    <tr>
-      <td><div class="square_number">3</div></td>
-    </tr>
-    <tr class="names_space">
-      <td><div class="member_name">Joaquins de Adrazes</div></td>
-    </tr>
-  </thead>
-</table>
+<script>
+  $(function() {
+    $.calendar.setDisplayVacationsOnHoverState();
+  })
+</script>
