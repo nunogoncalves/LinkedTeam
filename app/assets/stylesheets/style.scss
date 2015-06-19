@@ -60,13 +60,22 @@ html, body {
 
 
 .bg_user {
-  // background: rgba(0, 0, 0, 0) url("./bg_user.jpg") no-repeat scroll 0 0 / cover ;
-	background: rgba(0, 0, 0, 0) no-repeat scroll 0 0 / cover ;
+  background: rgba(0, 0, 0, 0) url("./bg_user.jpg") no-repeat scroll 0 0 / cover ;
   height: 260px;
   margin: 0;
   padding-top: 80px;
   width: 100%;
+  background-position: center center;
 }
+
+// .blurr_img {
+// 	-webkit-filter: blur(5px);
+//   -moz-filter: blur(5px);
+//   -o-filter: blur(5px);
+//   -ms-filter: blur(5px);
+//   filter: blur(5px);
+// }
+
 
 .user_photo {
 	width: 100px;
@@ -213,39 +222,71 @@ p {
 
 .users_bg {
 	background-color: #f5f5f5;
+	padding-bottom: 120px;
 	
-	h1 {
-		margin: 0;
-		text-align: center;
-	}
 }
+
 
 tr.user_detail {
 	background-color: #fff;
   border: 9px solid #f5f5f5;
-}
 
-tr.user_detail {
 	td {
-		padding: 20px;
+		padding: 30px;
+		text-align: center;
 
 	}
 }
 
 .users_list {
-	margin: 0 auto;
+	margin: 60px auto 0 auto;
 }
 
 .user_photo_detaill {
+    background-position: center center;
     background-size: cover;
     border-radius: 100px;
     display: block;
-    height: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 30px;
+    height: 10px;
+    margin: 20px 25px;
+    width: 10px;
 }
 
+.user_top_bg {
+	background: rgba(0, 0, 0, 0) url("./bg_user_list.jpg") no-repeat scroll 0 0 / cover ;
+  height: 220px;
+  margin: 0;
+  padding-top: 80px;
+  width: 100%;
+
+  h1 {
+		margin: 0;
+		text-align: center;
+		font-weight: 400;
+		font-size: 22px;
+		color: #fff;
+		margin: 15px 0;
+	}
+}
+
+.user_top_img {
+	width: 100px;
+ 	height: 100px;
+	background-image: url("./bg_user_icon.png");
+	background-size: cover;
+	display: block;
+	border-radius: 100px;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+thead tr.users_stuff {
+		margin-bottom: 10px;
+		height: 80px;
+		color: #5598C8;
+}
 
 
 
