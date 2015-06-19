@@ -21,6 +21,8 @@ gem 'simple_form'
 gem "paperclip", "~> 4.2"
 gem "omniauth-google-oauth2"
 gem "w_flow"
+gem "ransack"
+gem 'active_model_serializers', '0.8.1'
 
 group :development, :test do
   gem 'pry'

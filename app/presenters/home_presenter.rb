@@ -78,7 +78,7 @@ class HomePresenter < ViewPresenter
     _d = date_for_vacation_check(current_day_of_month)
 
     @vacations.each do |vacation|
-      if vacation.year == _d.year && vacation.monht == _d.month && vacation.day == _d.day
+      if vacation.year == _d.year && vacation.month == _d.month && vacation.day == _d.day
         return true
       end
     end

@@ -8,15 +8,15 @@ $.calendar = {
     if ($.calendar.mode == "view") {
       $.calendar.mode = "edit"
       $(element).text("x")
-      $(element).addClass("edit_mode"); 
-      $(element).removeClass("view_mode"); 
+      $(element).addClass("edit_mode");
+      $(element).removeClass("view_mode");
       $("#date_view_container").addClass("edit_mode")
       $("#date_view_container").removeClass("view_mode")
     } else {
       $.calendar.mode = "view"
       $(element).text("+")
-      $(element).removeClass("edit_mode"); 
-      $(element).addClass("view_mode"); 
+      $(element).removeClass("edit_mode");
+      $(element).addClass("view_mode");
       $("#date_view_container").addClass("view_mode")
       $("#date_view_container").removeClass("edit_mode")
     }
@@ -25,7 +25,6 @@ $.calendar = {
   dayClicked: function(dayElement) {
     var _this = $.calendar
     var $daySquare = $(dayElement);
-    // var dateStr = $daySquare.data("year") + " - " + $daySquare.data("month") + " - " + $daySquare.data("day");
     var dateStr = $daySquare.data("date");
     console.log(dateStr);
     if (_this.mode == 'edit') {
@@ -56,8 +55,7 @@ $.calendar = {
         $(".days_info").css("visibility", "hidden");
       }
     }
-    var outHandler = function() {
-    }
+    var outHandler = function() {}
 
     $(".day").hover(inHandler, outHandler)
   },
@@ -80,7 +78,37 @@ $.calendar = {
     });
   },
 
-  submitDays: function() {
-    _this.selectedDays = [];
+  submitVacations: function() {
+    $.ajax({
+      method: "POST",
+      url: "calendars/vacations",
+      data: {
+        vacations: $.calendar.selectedDays
+      },
+      success: function() {
+        $.calendar.toggleMode();
+        debugger
+        // $(".vacation_selected").removeClass("vacation_selected").parent().addClass("day_vacation_users");
+
+        $.each($(".vacation_selected"), function(index, $td) {
+          var users_already_in_day = $td.find(".day_vacation_users").length
+          if (users_already_in_day > 0) {
+            console.log(users_already_in_day)
+          } else {
+            console.log(users_already_in_day)
+            // $td.html()'<div class="day_vacation_users" style="display: none" data-users_count="<%= vacations.length %>">'+
+          // <% vacations.each do |vacation| %>
+          //   <div class="member_name"><%= vacation.user.name %></div>
+          // <% end %>
+          // </div>
+
+          }
+
+        })
+      },
+      error: function() {
+        console.log("error");
+      }
+    });
   }
 }

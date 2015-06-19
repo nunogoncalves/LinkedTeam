@@ -177,7 +177,6 @@ button.add_calendar {
 	height: 60px;
 
 	span {
-		border: 1px solid #f8f8f8;
     border-radius: 20px;
     color: #fff;
     font-size: 12px;
@@ -207,11 +206,93 @@ button.add_calendar {
 	}
 }
 
+tr.week_days {
+    border-bottom: 1px solid #dddddd;
+    color: #2a9ed3;
+    font-weight: 600;
+    height: 50px;
+    line-height: 90px;
+}
+
 
 
 
 .edit_mode {
-  background-color: blue;
+  background-color: #73B4D7;
+  height: 880px;
+
+  .present_month, .present_year {
+		font-size: 48px;
+		display: inline-block;
+		margin: 0 25px;
+		color: #fff;
+	}
+
+	.previous_month, .previous_year {
+		font-size: 48px;
+		font-weight: 300;
+		display: inline-block;
+		text-decoration: none;
+		color: rgba(255, 255, 255, 0.35);
+
+		&:hover{
+			color: #34BBF8;
+		}
+	}
+
+	.next_month, .next_year {
+		font-size: 48px;
+		font-weight: 300;
+		display: inline-block;
+		text-decoration: none;
+		color: rgba(255, 255, 255, 0.35);
+
+
+		&:hover{
+			color: #34BBF8;
+		}
+	}
+
+	tr.week_days td {
+		background-color: rgba(254, 254, 254, 0);
+	}
+
+	.weekend {
+		color: #0F3544;
+	}
+
+	.month {
+		background-color: #fff;
+	}
+
+	button.add_calendar {
+    background: #fff none repeat scroll 0 0;
+    border: 0 none;
+    border-radius: 50%;
+    color: #019de3;
+    display: block;
+    font-size: 42px;
+    height: 80px;
+    left: 80%;
+    line-height: 70px;
+    padding-bottom: 8px;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    top: 368px;
+    width: 80px;
+}
+
+
+
+
+
+
+
+
+
+
+
 }
 
 .view_mode {

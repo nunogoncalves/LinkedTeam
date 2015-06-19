@@ -7,7 +7,7 @@
       <td>Nr. Colegas</td>
     </tr>
     <tr>
-      <td><div class="square_number">3</div></td>
+      <td><div class="square_number"></div></td>
     </tr>
     <tr class="names_space">
       <td>
@@ -19,11 +19,11 @@
 
 <%= render 'month', month_ord: month_ord, month_big: true %>
 
-
-<table class="calendar_legend">
-  <tbody class="chosen_dates">
-  </tbody>
-</table>
+<div class="calendar_legend">
+  <button onclick="$.calendar.submitVacations();">Submeter</button>
+  <div class="chosen_dates">
+  </div>
+</div>
 
 <script>
   $(function() {
