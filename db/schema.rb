@@ -19,8 +19,9 @@ ActiveRecord::Schema.define(version: 20150619170012) do
   create_table "team_elements", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "team_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "manager",    default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "team_managers", force: :cascade do |t|
@@ -70,9 +71,9 @@ ActiveRecord::Schema.define(version: 20150619170012) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "team_id"
     t.string   "provider"
     t.string   "uid"
-    t.integer  "team_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

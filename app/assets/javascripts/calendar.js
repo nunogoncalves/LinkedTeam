@@ -6,20 +6,22 @@ $.calendar = {
 
   toggleMode: function(element) {
     if ($.calendar.mode == "view") {
-      $.calendar.mode = "edit"
-      $(element).text("x")
-      $(element).addClass("edit_mode");
-      $(element).removeClass("view_mode");
-      $("#date_view_container").addClass("edit_mode")
-      $("#date_view_container").removeClass("view_mode")
+      $.calendar._putInEditMode(element);
     } else {
-      $.calendar.mode = "view"
-      $(element).text("+")
-      $(element).removeClass("edit_mode");
-      $(element).addClass("view_mode");
-      $("#date_view_container").addClass("view_mode")
-      $("#date_view_container").removeClass("edit_mode")
+      $.calendar._putInViewMode(element);
     }
+  },
+
+  _putInEditMode: function(element) {
+    $.calendar.mode = "edit"
+    $(element).text("x").addClass("edit_mode").removeClass("view_mode");
+    $("#date_view_container").addClass("edit_mode").removeClass("view_mode");
+  },
+
+  _putInViewMode: function(element) {
+    $.calendar.mode = "view"
+    $(element).text("+").removeClass("edit_mode").addClass("view_mode");
+    $("#date_view_container").addClass("view_mode").removeClass("edit_mode")
   },
 
   dayClicked: function(dayElement) {
@@ -39,7 +41,7 @@ $.calendar = {
     }
   },
 
-  setDisplayVacationsOnHoverState: function() {
+  setVacationsOnHoverEvent: function() {
     var inHandler = function() {
       var $td = $(".names_space td")
       $td.html($(""))
@@ -59,7 +61,6 @@ $.calendar = {
     $(".day").hover(inHandler, outHandler)
   },
 
-
   removeDayFromWantedVacationsDays: function(dateStr) {
     var array = $.calendar.selectedDays;
     for (var i = array.length-1; i>=0; i--) {
@@ -76,6 +77,38 @@ $.calendar = {
     });
   },
 
+  refreshDaysWithUsers: function($days) {
+    $.each($days, function(index, selectedDay) {
+      var $vacations_of_day_container = $(selectedDay).find(".vacations_of_day_container");
+      var date = $(selectedDay).data("date");
+      $.ajax({
+        url: "/calendars/vacations?q[date_eq=" + date + "]",
+        success: function(data) {
+          $vacations_of_day_container.html('<div class="day_vacation_users" style="display: none" data-users_count=" ' + data.vacations.length + '"></div>')
+          $.each(data.vacations, function(index, vacation) {
+            var $day_vacation_users = $vacations_of_day_container.find(".day_vacation_users")
+            $day_vacation_users.append("<div class='member_name'>" + vacation.user_name + "</div>")
+          });
+        }
+      });
+    });
+  },
+
+  submitVacationsSuccess: function() {
+    $.calendar.toggleMode();
+    //remove selected style and add user to vacations days
+    var $selectedElements = $(".vacation_selected").removeClass("vacation_selected");
+
+    $.each($selectedElements, function(index, selectedDay) {
+      $(selectedDay).addClass("with_events")
+    });
+
+    $.calendar.refreshDaysWithUsers($selectedElements);
+
+    $.calendar.selectedDays = [];
+    $(".chosen_dates").html("");
+  },
+
   submitVacations: function() {
     $.ajax({
       method: "POST",
@@ -83,36 +116,11 @@ $.calendar = {
       data: {
         vacations: $.calendar.selectedDays
       },
-      success: function() {
-        $.calendar.toggleMode();
-        //remove selected style and add user to vacations days
-        var $selectedElements = $(".vacation_selected");
-        $selectedElements.removeClass("vacation_selected");
-
-        $.each($selectedElements, function(index, selectedDay) {
-          $(selectedDay).addClass("with_events")
-        });
-
-        $.each($selectedElements, function(index, selectedDay) {
-          var $vacations_of_day_container = $(selectedDay).find(".vacations_of_day_container");
-          var date = $(selectedDay).data("date");
-          $.ajax({
-            url: "/calendars/vacations?q[date_eq=" + date + "]",
-            success: function(data) {
-              $vacations_of_day_container.html('<div class="day_vacation_users" style="display: none" data-users_count=" ' + data.vacations.length + '"></div>')
-              $.each(data.vacations, function(index, vacation) {
-                var $day_vacation_users = $vacations_of_day_container.find(".day_vacation_users")
-                $day_vacation_users.append("<div class='member_name'>" + vacation.user_name + "</div>")
-              });
-            }
-          });
-        });
-        $.calendar.selectedDays = [];
-        $(".chosen_dates").html("");
-      },
+      success: $.calendar.submitVacationsSuccess,
       error: function() {
         console.log("error");
       }
     });
   }
+
 }

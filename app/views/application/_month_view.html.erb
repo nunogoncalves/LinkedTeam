@@ -1,4 +1,4 @@
-<button class="add_calendar" onclick="$.calendar.toggleMode(this); console.log($.calendar.mode)">+</button>
+<button class="add_calendar" onclick="$.calendar.toggleMode(this);">+</button>
 <% @home_presenter.date = DateTime.new(@home_presenter.year, month_ord, 1) %>
 
 <table class="days_info" style="visibility: hidden;">
@@ -27,6 +27,6 @@
 
 <script>
   $(function() {
-    $.calendar.setDisplayVacationsOnHoverState();
+    $.calendar.setVacationsOnHoverEvent();
   })
 </script>
