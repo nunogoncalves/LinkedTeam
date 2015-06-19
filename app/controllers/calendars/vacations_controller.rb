@@ -17,13 +17,16 @@ module Calendars
     end
 
     def dashboard
-      report = Calendars::Vacations::Api::Dashboard.run(user: current_user)
+      report = Vacations::Api::Dashboard.run(user: current_user)
 
       if report.success?
-        @teams = report.data.teams
+        binding.pry
+
+        @teams_hash = ActiveModel::ArraySerializer.new(report.data.teams, each_serializer: Teams::WithElementsSerializer).as_json
       else
 
       end
     end
+
   end
 end
