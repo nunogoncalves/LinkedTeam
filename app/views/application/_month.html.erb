@@ -37,11 +37,20 @@
             <% temp_current_day_of_month = @home_presenter.convert_negative_n_of_day_to_previous_month_day(temp_current_day_of_month) %>
           <% end %>
 
-          <% if @home_presenter.vacations_in_this_day?(current_day_of_month) %>
+          <% has_vacations_in_day = @home_presenter.vacations_in_this_day?(current_day_of_month) %>
+          <% if has_vacations_in_day %>
             <% classes += ' with_events'  %>
           <% end %>
 
           <td class="<%= classes %>">
+            <% if has_vacations_in_day %>
+              <% vacations = @home_presenter.vacations_in_day(current_day_of_month) %>
+              <div class="day_vacation_users" style="display: none" data-users_count="<%= vacations.length %>">
+              <% vacations.each do |vacation| %>
+                <div class="member_name"><%= vacation.user.name %></div>
+              <% end %>
+              </div>
+            <% end %>
             <div>
               <%= temp_current_day_of_month %>
             </div>

@@ -23,9 +23,7 @@ $.calendar = {
     var $daySquare = $(dayElement);
     var dateStr = $daySquare.data("year") + " - " + $daySquare.data("month") + " - " + $daySquare.data("day");
 
-    if (_this.mode == 'view') {
-      // _this.showDayDetails($daySquare);
-    } else {
+    if (_this.mode == 'edit') {
       if ($daySquare.hasClass("vacation_day_selected")) {
         $daySquare.removeClass("vacation_day_selected");
         _this.removeDayFromWantedVacationsDays(dateStr);
@@ -36,7 +34,25 @@ $.calendar = {
     }
   },
 
-  showDayDetails: function($daySquare) {
+  setDisplayVacationsOnHoverState: function() {
+    var inHandler = function() {
+      var $td = $(".names_space td")
+      $td.html($(""))
+      var $day_vacation_users = $(this).find(".day_vacation_users")
+      var users_in_vacation_this_day_html = $day_vacation_users.html();
+
+      if (users_in_vacation_this_day_html != undefined) {
+        $(".days_info").css("visibility", "visible");
+        $td.html(users_in_vacation_this_day_html);
+        $(".square_number").text($day_vacation_users.data("users_count"))
+      } else {
+        $(".days_info").css("visibility", "hidden");
+      }
+    }
+    var outHandler = function() {
+    }
+
+    $(".day").hover(inHandler, outHandler)
   },
 
 
