@@ -2,16 +2,7 @@ module Calendars
   class VacationsController < ApplicationController
 
     def index
-      if params[:q].present?
-        q = Vacation.search(params[:q])
-        vacations = q.result(distinct: true)
-      else
-        vacations = Vacation.all
-      end
-      vacations = vacations.map do |vacation|
-        ::Vacations::IndexSerializer.new(vacation).serializable_hash
-      end
-
+      vacations = Calendars::Vacations::Index.run(params: params).data.vacations
       render json: vacations
     end
 
