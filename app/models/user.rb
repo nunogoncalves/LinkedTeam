@@ -10,8 +10,7 @@ class User < ActiveRecord::Base
 
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
+  devise :database_authenticatable, :rememberable, :trackable,
          :omniauthable, :omniauth_providers => [:google_oauth2]
 
   belongs_to :team
