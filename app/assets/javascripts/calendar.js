@@ -26,7 +26,6 @@ $.calendar = {
     var _this = $.calendar
     var $daySquare = $(dayElement);
     var dateStr = $daySquare.data("date");
-    console.log(dateStr);
     if (_this.mode == 'edit') {
       if ($daySquare.hasClass("vacation_selected")) {
         $daySquare.removeClass("vacation_selected");
@@ -73,7 +72,6 @@ $.calendar = {
 
   showWantedVacationDays: function() {
     $.each($.calendar.selectedDays, function(i, date) {
-      console.log(date);
       $('[data-date="' + date + '"]').addClass("vacation_day_selected");
     });
   },
@@ -87,24 +85,30 @@ $.calendar = {
       },
       success: function() {
         $.calendar.toggleMode();
-        debugger
-        // $(".vacation_selected").removeClass("vacation_selected").parent().addClass("day_vacation_users");
+        //remove selected style and add user to vacations days
+        var $selectedElements = $(".vacation_selected");
+        $selectedElements.removeClass("vacation_selected");
 
-        $.each($(".vacation_selected"), function(index, $td) {
-          var users_already_in_day = $td.find(".day_vacation_users").length
-          if (users_already_in_day > 0) {
-            console.log(users_already_in_day)
-          } else {
-            console.log(users_already_in_day)
-            // $td.html()'<div class="day_vacation_users" style="display: none" data-users_count="<%= vacations.length %>">'+
-          // <% vacations.each do |vacation| %>
-          //   <div class="member_name"><%= vacation.user.name %></div>
-          // <% end %>
-          // </div>
+        $.each($selectedElements, function(index, selectedDay) {
+          $(selectedDay).addClass("with_events")
+        });
 
-          }
-
-        })
+        $.each($selectedElements, function(index, selectedDay) {
+          var $vacations_of_day_container = $(selectedDay).find(".vacations_of_day_container");
+          var date = $(selectedDay).data("date");
+          $.ajax({
+            url: "/calendars/vacations?q[date_eq=" + date + "]",
+            success: function(data) {
+              $vacations_of_day_container.html('<div class="day_vacation_users" style="display: none" data-users_count=" ' + data.vacations.length + '"></div>')
+              $.each(data.vacations, function(index, vacation) {
+                var $day_vacation_users = $vacations_of_day_container.find(".day_vacation_users")
+                $day_vacation_users.append("<div class='member_name'>" + vacation.user_name + "</div>")
+              });
+            }
+          });
+        });
+        $.calendar.selectedDays = [];
+        $(".chosen_dates").html("");
       },
       error: function() {
         console.log("error");

@@ -3,7 +3,7 @@ module Calendars
 
     def index
       vacations = Calendars::Vacations::Index.run(params: params).data.vacations
-      render json: vacations
+      render json: { vacations: vacations }
     end
 
     def create
