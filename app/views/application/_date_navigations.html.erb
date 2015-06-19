@@ -1,15 +1,15 @@
 <% if @home_presenter.year_view? %>
-  <div>
-    <a href="/?show_year=true&year=<%= @home_presenter.previous_year %>"><%= @home_presenter.previous_year %></a>
-    <%= @home_presenter.date.year %>
-    <a href="/?show_year=true&year=<%= @home_presenter.next_year %>"><%= @home_presenter.next_year %></a>
+  <div class="years_nav_container">
+    <a class="previous_year" href="/?show_year=true&year=<%= @home_presenter.previous_year %>"><%= @home_presenter.previous_year %></a>
+    <div class="present_year"><%= @home_presenter.year %></div>
+    <a class="next_year" href="/?show_year=true&year=<%= @home_presenter.next_year %>"><%= @home_presenter.next_year %></a>
   </div>
 <% else %>
 
   <div class="months_nav_container">
     <% previous_month = @home_presenter.date - 1.month %>
     <% next_month = @home_presenter.date + 1.month %>
-    <a class="previous_month"href='/?<%= "year=#{previous_month.year}&month=#{previous_month.month}" %>'><%= date_with_format(previous_month, "%B de %Y") %></a>
+    <a class="previous_month" href='/?<%= "year=#{previous_month.year}&month=#{previous_month.month}" %>'><%= date_with_format(previous_month, "%B de %Y") %></a>
     <div class="present_month"><%= date_with_format(@home_presenter.date, "%B de %Y") %></div>
     <a class="next_month" href='/?<%= "year=#{next_month.year}&month=#{next_month.month}" %>'><%= date_with_format(next_month, "%B de %Y") %></a>
   </div>

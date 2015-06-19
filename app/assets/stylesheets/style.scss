@@ -116,19 +116,19 @@ button.add_calendar {
 
 /// CALENDÁRIO ///
 
-.months_nav_container {
+.months_nav_container, .years_nav_container {
 	text-align: center;
 	margin-top: 65px;
 	width: 100%;
 }
 
-.present_month {
+.present_month, .present_year {
 	font-size: 48px;
 	display: inline-block;
 	margin: 0 25px;
 }
 
-.previous_month {
+.previous_month, .previous_year {
 	font-size: 48px;
 	font-weight: 300;
 	display: inline-block;
@@ -140,7 +140,7 @@ button.add_calendar {
 	}
 }
 
-.next_month {
+.next_month, .next_year {
 	font-size: 48px;
 	font-weight: 300;
 	display: inline-block;
