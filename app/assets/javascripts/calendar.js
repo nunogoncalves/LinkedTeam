@@ -80,6 +80,18 @@ $.calendar = {
   },
 
   submitVacations: function() {
-    _this.selectedDays = [];
+    $.ajax({
+      method: "POST",
+      url: "calendars/vacations",
+      data: {
+        vacations: $.calendar.selectedDays
+      },
+      success: function() {
+        console.log("success");
+      },
+      error: function() {
+        console.log("error");
+      }
+    });
   }
 }

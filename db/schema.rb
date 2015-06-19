@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 20150619101656) do
     t.integer  "user_id"
     t.date     "date"
     t.integer  "year"
-    t.integer  "monht"
+    t.integer  "month"
     t.integer  "day"
     t.integer  "day_of_the_week"
     t.string   "state"
