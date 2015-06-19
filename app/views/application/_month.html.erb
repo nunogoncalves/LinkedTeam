@@ -1,6 +1,9 @@
 <% @home_presenter.date = DateTime.new(@home_presenter.year, month_ord, 1) %>
 <span class="month_name"><%= "#{@home_presenter.name_of_month}" %></span>
-<table class="month">
+
+<% month_big ||= false %>
+
+<table class="month <%= 'month_big' if month_big %>">
   <thead>
     <tr class="week_days">
       <td>Seg</td>
@@ -49,12 +52,3 @@
     <% end %>
   </tbody>
 </table>
-
-<script>
-  function openModel(dayElement) {
-    var title = $(dayElement).text() + " de " + $(dayElement).closest("div.month").find(".month_name").text()
-    $('#modal-1').find("h3").text(title)
-    // $('#modal-1').addClass('md-show md-perspective')
-    $('#modal-1').addClass('md-show')
-  }
-</script>

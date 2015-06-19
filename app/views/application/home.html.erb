@@ -9,10 +9,13 @@
 <%= render 'date_navigations' %>
 
 <% if @home_presenter.year_view? %>
-  <%= render 'year' %>
+  <%= render 'year_view' %>
 <% else %>
-  <%= render 'month_big', month_ord: @home_presenter.month %>
+  <%= render 'month_view', month_ord: @home_presenter.month %>
 <% end %>
 
-
-
+<script>
+  $(function() {
+    $.calendar.showWantedVacationDays();
+  })
+</script>
