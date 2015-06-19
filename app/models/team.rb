@@ -6,8 +6,8 @@ class Team < ActiveRecord::Base
            through: :team_elements,
            source:  :user
 
-  has_many :responsibles,
-           -> { where team_elements: { responsible: true } },
+  has_many :managers,
+           -> { where team_elements: { manager: true } },
            through: :team_elements,
            source:  :user
 

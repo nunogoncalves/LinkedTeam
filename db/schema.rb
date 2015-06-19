@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20150619101656) do
   create_table "team_elements", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "team_id"
-    t.boolean  "responsible", default: false
+    t.boolean  "manager", default: false
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
   end

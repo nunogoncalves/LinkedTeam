@@ -3,7 +3,7 @@ class CreateTeamElements < ActiveRecord::Migration
     create_table :team_elements do |t|
       t.integer :user_id
       t.integer :team_id
-      t.boolean :responsible, default: false
+      t.boolean :manager, default: false
 
       t.timestamps null: false
     end

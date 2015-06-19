@@ -3,9 +3,9 @@
 one:
   element_id: 1
   team_id: 1
-  responsible: 
+  manager:
 
 two:
   element_id: 1
   team_id: 1
-  responsible: 
+  manager:
