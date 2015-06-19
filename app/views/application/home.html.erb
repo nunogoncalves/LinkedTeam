@@ -1,0 +1,20 @@
+<div class="user_container"> 
+	<div class="bg_user">
+		<div class="user_photo"> </div>
+		<h2>Cláudia Rodrigues</h2>
+		<a href="">Ver perfil</a>
+	</div>
+</div>
+
+<%= render 'date_navigations' %>
+
+
+<% if @show_year %>
+  <%= render 'year' %>
+<% else %>
+  <% @year = @date.year %>
+  <%= render 'month_big', month_ord: @date.month %>
+<% end %>
+
+
+
