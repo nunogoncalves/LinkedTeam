@@ -220,10 +220,10 @@
     if( label == true )
     {
       block = '<label for="' + input_id + '">' +
-            '<span class="labelauty-unchecked-image"></span>' +
-            '<span class="labelauty-unchecked">' + unchecked_message + '</span>' +
-            '<span class="labelauty-checked-image"></span>' +
-            '<span class="labelauty-checked">' + checked_message + '</span>' +
+            // '<span class="labelauty-unchecked-image"></span>' +
+            // '<span class="labelauty-unchecked">' + unchecked_message + '</span>' +
+            // '<span class="labelauty-checked-image"></span>' +
+            // '<span class="labelauty-checked">' + checked_message + '</span>' +
           '</label>';
     }
     else

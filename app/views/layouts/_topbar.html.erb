@@ -1,5 +1,5 @@
-<div style="width: 100%; height: 20px; background-color: #3498db;">
-  <a href="/">Início</a>
+<div class="topbar">
+  <a class="inicio" href="/">Início</a>
   <a href="<%= users_path %>"> Colaboradores</a>
   <a href="<%= user_path(current_user) %>">Meu perfil</a>
   <%= link_to "Sair", destroy_user_session_path, :method => "delete" %>

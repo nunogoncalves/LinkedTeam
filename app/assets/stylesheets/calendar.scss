@@ -1,0 +1,183 @@
+table, caption, tbody, tfoot, thead, tr, th, td {
+    border-collapse: collapse;
+}
+
+.row {
+  border: 0.5px solid rgba(232, 232, 232, 0.53);
+  margin: 0 auto;
+  position: relative;
+  top: 72px;
+  width: 100%;
+}
+
+
+table.month {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  width: 50%;
+  float: left;
+}
+
+.year_container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.trimester{
+    display:flex;
+    /*padding: 10px;*/
+}
+
+tr.week_days {
+  color: #2A9ED3;
+  font-weight: 600;
+
+  td {
+    width: 80px;
+    height: 40px;
+    background-color: #fff;
+    
+  }
+}
+
+.with_events {
+  background-color: #F0F8FF;
+  cursor: pointer;
+}
+
+.day {
+  
+  .md-trigger {
+    color: black;
+  }
+
+   &:hover {
+   background-color: #CCE7E6;
+   cursor: pointer;
+  }
+}
+
+.month {
+    color: #7f8c8d;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.month_big td {
+  height: 80px;
+  width: 80px;
+  text-align: center;
+}
+
+.month_name {
+  color: #d35400;
+}
+
+.current_day {
+  height: 15px;
+  width: 15px;
+  background-color: #fffee4;
+}
+
+.not_this_month {
+  color: #ecf0f1;
+}
+
+.weekend {
+  color: #044F6D;
+
+  .md-trigger {
+    font-weight: 600;
+  }
+}
+
+td {
+  height: 15px;
+}
+
+.vacation_selected {
+  background-color: #37BAC6;
+
+  .md-trigger {
+    color: #fff;
+    font-weight: 600;
+  }
+}
+
+
+
+//// DAYS INFO
+
+
+.calendar_legend {
+  width: 25%;
+  margin-top: 30px;
+  float: left;
+}
+
+.calendar_info {
+  td {
+    height: 40px;
+    text-align: center;
+    font-weight: 600;
+  }
+ }
+
+
+.days_info {
+  width: 25%;
+  margin-top: 30px;
+  float: left;
+
+    tr.names_space {
+      margin-bottom: 10px;
+      height: 80px;
+    }
+
+
+  td {
+    margin: 0 auto;
+    font-size: 13px;
+    color: #596D7A;
+
+    .square_number {
+    background-color: #596D7A;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 38px;
+    height: 80px;
+    line-height: 80px;
+    margin: 0 auto;
+    text-align: center;
+    width: 80px;
+    }
+
+    .member_name {
+      background-color: #899AA9;
+      border-radius: 10px;
+      color: #fff;
+      height: 32px;
+      line-height: 30px;
+      margin: 0 auto;
+      text-align: center;
+      width: 80%;
+      font-size: 13px;
+    }
+  }
+}
+
+.dmy_info {
+  td {
+    height: 40px;
+    text-align: center;
+    font-weight: 600;
+  }
+}
+
+
+
+
+
+
+

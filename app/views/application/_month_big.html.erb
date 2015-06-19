@@ -1,11 +1,24 @@
-<button onclick="$.calendar.toggleMode(this); console.log($.calendar.mode)">Ver</button>
+<button class="add_calendar" onclick="$.calendar.toggleMode(this); console.log($.calendar.mode)">Ver</button>
 
 <% beggining_of_month = DateTime.new(@date.year, month_ord, 1) %>
 <% num_days_in_month = beggining_of_month.end_of_month.day %>
 <% num_days_prev_month = (beggining_of_month -1.day).day %>
 <% month_num = month_number(beggining_of_month) %>
 
-<span class="month_name"><%= "#{month_name(beggining_of_month)}" %></span>
+<!-- <span class="month_name"><%= "#{month_name(beggining_of_month)}" %></span> -->
+<!-- <div class="row"></div> -->
+
+<table class="calendar_legend">
+  <thead>
+    <tr class="calendar_info">
+      <td>teste</td>
+    </tr>
+    <tr class="calendar_info">
+      <td>teste</td>
+    </tr>
+  </thead>
+</table>
+
 <table class="month month_big ">
   <thead>
     <tr class="week_days">
@@ -29,7 +42,7 @@
       <tr>
         <% (0..6).to_a.each do |day_of_week| %>
           <% current_day_of_month = day_of_month + day_of_week #day_of_month is increased by 7 at the end %>
-          <% classes = "day #{'with_events hvr-buzz' if [true, false].sample} #{'current_day' if today?(@year, month_num, current_day_of_month)} #{'weekend' if day_of_week > 4}" %>
+          <% classes = "day #{'with_events hvr-buz' if [true, false].sample} #{'current_day' if today?(@year, month_num, current_day_of_month)} #{'weekend' if day_of_week > 4}" %>
 
           <% before_end_of_month = current_day_of_month <= num_days_in_month %>
           <% after_beggining_of_month = current_day_of_month > 0 %>
@@ -61,6 +74,20 @@
       <% day_of_month += 7 %>
     <% end %>
   </tbody>
+</table>
+
+<table class="days_info">
+  <thead>
+    <tr class="dmy_info">
+      <td>Nr. Colegas</td>
+    </tr>
+    <tr>
+      <td><div class="square_number">3</div></td>
+    </tr>
+    <tr class="names_space">
+      <td><div class="member_name">Joaquins de Adrazes</div></td>
+    </tr>
+  </thead>
 </table>
 
 

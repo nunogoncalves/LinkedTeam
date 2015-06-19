@@ -1,0 +1,213 @@
+html, body {
+  font-family: 'Titillium Web', sans-serif;
+  margin: 0;
+  }
+
+
+.topbar {
+	width: 100%; 
+	height: 70px; 
+	text-align: right;
+
+	a {
+		display: inline-block;
+		color: #6D6D6D;
+		font-weight: 600;
+		text-decoration: none;
+		font-size: 14px;
+		font-family:inherit;
+		padding: 23px 25px;
+	
+	&:hover{
+		color: #000;
+		}
+
+	}
+}
+
+.inicio {
+	float: left;
+}
+
+
+.user_container {
+	text-align: center;
+
+	
+	h2 {
+		color: #fff;
+    font-size: 22px;
+    font-weight: 400;
+    margin: 15px 0;
+	}
+
+	a {
+		border: 1px solid #f8f8f8;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 5px 22px;
+    text-decoration: none;
+
+    &:hover{
+			background-color: #fff;
+			color: #000;
+		}
+
+	}
+}
+
+
+.bg_user {
+	background: rgba(0, 0, 0, 0) url("./bg_user.jpg") no-repeat scroll 0 0 / cover ;
+  height: 260px;
+  margin: 0;
+  padding-top: 80px;
+  width: 100%;
+}
+
+.user_photo {
+	width: 100px;
+ 	height: 100px;
+	background-image: url("./user_photo.png");
+	background-size: cover;
+	display: block;
+	border-radius: 100px;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+
+/// CALENDAR ///
+
+button.add_calendar {
+  background: #019de3 none repeat scroll 0 0;
+  border-radius: 50%;
+  color: #f5f5f5;
+  display: block;
+  font-size: 42px;
+  font-weight: 2;
+  height: 80px;
+  left: 80%;
+  line-height: 70px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  top: 368px;
+  width: 80px;
+  border: 0;
+  padding-bottom: 8px;
+  position: absolute;
+
+
+	&:hover {
+		background: #34BBF8;
+	}
+
+}
+
+
+
+
+/// CALENDÁRIO ///
+
+.months_nav_container {
+	text-align: center;
+	margin-top: 65px;
+	width: 100%;
+}
+
+.present_month {
+	font-size: 48px;
+	display: inline-block;
+	margin: 0 25px;
+}
+
+.previous_month {
+	font-size: 48px;
+	font-weight: 300;
+	display: inline-block;
+	text-decoration: none;
+	color: #E3E3E3;
+
+	&:hover{
+		color: #34BBF8;
+	}
+}
+
+.next_month {
+	font-size: 48px;
+	font-weight: 300;
+	display: inline-block;
+	text-decoration: none;
+	color: #E3E3E3;
+	
+
+	&:hover{
+		color: #34BBF8;
+	}
+}
+
+.views {
+	text-align: center;
+	margin-top: 20px;
+	height: 60px;
+
+	span {
+		border: 1px solid #f8f8f8;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 22px;
+    text-decoration: none;
+    background-color: #000;
+    margin: 0 5px;
+	}
+
+	a {
+		border: 1px solid #a2a2a2;
+    border-radius: 20px;
+    background-color: #fff;
+		color: #a3a3a3;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 22px;
+    text-decoration: none;
+    margin: 5px;
+
+    &:hover{
+			background-color: #fff;
+			color: #000;
+			border: 1px solid #000;
+		}
+	}
+}	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

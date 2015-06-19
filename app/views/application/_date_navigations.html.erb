@@ -1,0 +1,36 @@
+<% if @show_year %>
+  <div>
+    <a href="/?show_year=true&year=<%= @date.year - 1%>"><%= @date.year - 1 %></a>
+    <%= @date.year %>
+    <a href="/?show_year=true&year=<%= @date.year + 1 %>"><%= @date.year + 1 %></a>
+  </div>
+<% else %>
+
+  <div class="months_nav_container">
+    <% previous_month = @date - 1.month %>
+    <% next_month = @date + 1.month %>
+    <a class="previous_month"href='/?<%= "year=#{previous_month.year}&month=#{previous_month.month}" %>'><%= date_with_format(previous_month, "%B de %Y") %></a>
+    <div class="present_month"><%= date_with_format(@date, "%B de %Y") %></div>
+    <a class="next_month" href='/?<%= "year=#{next_month.year}&month=#{next_month.month}" %>'><%= date_with_format(next_month, "%B de %Y") %></a>
+  </div>
+<% end %>
+
+
+<div class="views">
+  <% if @show_year %>
+    <span>Vista Anual</span>
+    <a href="/">Vista mensal</a>
+  <% else %>
+    <a href="/?show_year=true">Vista anual</a>
+    <span>Vista Mensal</span>
+  <% end %>
+</div>
+
+<input type="checkbox" data-labelauty="|"/>
+<script>
+  $(function() {
+    $(document).ready(function(){
+        $(":checkbox").labelauty();
+    });
+  })
+</script>
