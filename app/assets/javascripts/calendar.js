@@ -7,12 +7,16 @@ $.calendar = {
   toggleMode: function(element) {
     if ($.calendar.mode == "view") {
       $.calendar.mode = "edit"
-      $(element).text("Edit")
+      $(element).text("x")
+      $(element).addClass("edit_mode"); 
+      $(element).removeClass("view_mode"); 
       $("#date_view_container").addClass("edit_mode")
       $("#date_view_container").removeClass("view_mode")
     } else {
       $.calendar.mode = "view"
-      $(element).text("View")
+      $(element).text("+")
+      $(element).removeClass("edit_mode"); 
+      $(element).addClass("view_mode"); 
       $("#date_view_container").addClass("view_mode")
       $("#date_view_container").removeClass("edit_mode")
     }

@@ -1,7 +1,9 @@
 <% @home_presenter.date = DateTime.new(@home_presenter.year, month_ord, 1) %>
-<span class="month_name"><%= "#{@home_presenter.name_of_month}" %></span>
 
 <% month_big ||= false %>
+<% unless month_big %>
+  <span class="month_name"><%= "#{@home_presenter.name_of_month}" %></span>
+<% end %>
 
 <table class="month <%= 'month_big' if month_big %>">
   <thead>
