@@ -22,11 +22,11 @@ $.calendar = {
     if (_this.mode == 'view') {
       _this.showDayDetails($daySquare);
     } else {
-      if ($daySquare.hasClass("vacation_selected")) {
-        $daySquare.removeClass("vacation_selected");
+      if ($daySquare.hasClass("vacation_day_selected")) {
+        $daySquare.removeClass("vacation_day_selected");
         _this.removeDayFromWantedVacationsDays(dateStr);
       } else {
-        $daySquare.addClass("vacation_selected");
+        $daySquare.addClass("vacation_day_selected");
         _this.selectedDays.push(dateStr)
       }
     }
@@ -52,7 +52,7 @@ $.calendar = {
   showWantedVacationDays: function() {
     $.each($.calendar.selectedDays, function(i, date) {
       console.log(date);
-      $('[data-date="' + date + '"]').addClass("vacation_selected");
+      $('[data-date="' + date + '"]').addClass("vacation_day_selected");
     });
   },
 

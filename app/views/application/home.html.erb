@@ -1,19 +1,17 @@
-<div class="user_container"> 
-	<div class="bg_user">
-		<div class="user_photo"> </div>
-		<h2>Cláudia Rodrigues</h2>
-		<a href="">Ver perfil</a>
+<div class="user_container">
+	<div class="bg_user" style="background-image: url('<%= current_user.avatar.url(:large) %>');">
+		<div class="user_photo" style="background-image: url('<%= current_user.avatar.url(:medium) %>');"></div>
+		<h2><%= current_user.name %></h2>
+		<a href="<%= user_path(current_user) %>">Ver perfil</a>
 	</div>
 </div>
 
 <%= render 'date_navigations' %>
 
-
-<% if @show_year %>
+<% if @home_presenter.year_view? %>
   <%= render 'year' %>
 <% else %>
-  <% @year = @date.year %>
-  <%= render 'month_big', month_ord: @date.month %>
+  <%= render 'month_big', month_ord: @home_presenter.month %>
 <% end %>
 
 

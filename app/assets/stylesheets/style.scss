@@ -5,8 +5,8 @@ html, body {
 
 
 .topbar {
-	width: 100%; 
-	height: 70px; 
+	width: 100%;
+	height: 70px;
 	text-align: right;
 
 	a {
@@ -17,7 +17,7 @@ html, body {
 		font-size: 14px;
 		font-family:inherit;
 		padding: 23px 25px;
-	
+
 	&:hover{
 		color: #000;
 		}
@@ -33,7 +33,7 @@ html, body {
 .user_container {
 	text-align: center;
 
-	
+
 	h2 {
 		color: #fff;
     font-size: 22px;
@@ -60,7 +60,8 @@ html, body {
 
 
 .bg_user {
-	background: rgba(0, 0, 0, 0) url("./bg_user.jpg") no-repeat scroll 0 0 / cover ;
+  // background: rgba(0, 0, 0, 0) url("./bg_user.jpg") no-repeat scroll 0 0 / cover ;
+	background: rgba(0, 0, 0, 0) no-repeat scroll 0 0 / cover ;
   height: 260px;
   margin: 0;
   padding-top: 80px;
@@ -70,7 +71,7 @@ html, body {
 .user_photo {
 	width: 100px;
  	height: 100px;
-	background-image: url("./user_photo.png");
+	// background-image: url("./user_photo.png");
 	background-size: cover;
 	display: block;
 	border-radius: 100px;
@@ -145,7 +146,7 @@ button.add_calendar {
 	display: inline-block;
 	text-decoration: none;
 	color: #E3E3E3;
-	
+
 
 	&:hover{
 		color: #34BBF8;
@@ -186,7 +187,7 @@ button.add_calendar {
 			border: 1px solid #000;
 		}
 	}
-}	
+}
 
 
 

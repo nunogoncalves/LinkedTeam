@@ -5,14 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
 
   def home
-    today = DateTime.now
-    year = params[:year].try(:to_i) || today.year
-    month = params[:month].try(:to_i) || today.month
-    day = today.day
-
-    @date = DateTime.new(year, month, day)
-
-    @show_year = params[:show_year] || false
+    @home_presenter = HomePresenter.new(params)
   end
 
 end

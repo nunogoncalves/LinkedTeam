@@ -1,9 +1,5 @@
-<% beggining_of_month = DateTime.new(@date.year, month_ord, 1) %>
-<% num_days_in_month = beggining_of_month.end_of_month.day %>
-<% num_days_prev_month = (beggining_of_month -1.day).day %>
-<% month_num = month_number(beggining_of_month) %>
-
-<span class="month_name"><%= "#{month_name(beggining_of_month)}" %></span>
+<% @home_presenter.date = DateTime.new(@home_presenter.year, month_ord, 1) %>
+<span class="month_name"><%= "#{@home_presenter.name_of_month}" %></span>
 <table class="month">
   <thead>
     <tr class="week_days">
@@ -17,7 +13,7 @@
     </tr>
   </thead>
   <tbody>
-    <% first_week_day = beggining_of_month.wday - 1 %>
+    <% first_week_day = @home_presenter.first_day_of_month_weekday %>
     <% day_of_month = 1 - first_week_day %>
 
     <% # mega hack to start sunday weeks properly. %>
@@ -27,27 +23,24 @@
       <tr>
         <% (0..6).to_a.each do |day_of_week| %>
           <% current_day_of_month = day_of_month + day_of_week #day_of_month is increased by 7 at the end %>
-          <% classes = "day #{'with_events hvr-buzz' if [true, false].sample} #{'current_day' if today?(@year, month_num, current_day_of_month)} #{'weekend' if day_of_week > 4}" %>
-
-          <% before_end_of_month = current_day_of_month <= num_days_in_month %>
-          <% after_beggining_of_month = current_day_of_month > 0 %>
-          <% show_day = before_end_of_month && after_beggining_of_month %>
 
           <% temp_current_day_of_month = current_day_of_month %>
-          <% if current_day_of_month > num_days_in_month %>
+
+          <% classes = "day #{'current_day' if @home_presenter.today?(current_day_of_month)} #{'weekend' if day_of_week > 4}" %>
+
+          <% if @home_presenter.day_not_in_current_month(current_day_of_month) %>
             <% classes.gsub!("weekend", "") %>
             <% classes += "not_this_month" %>
-            <% temp_current_day_of_month = temp_current_day_of_month - num_days_in_month %>
-          <% elsif current_day_of_month < 1 %>
-            <% classes.gsub!("weekend", "") %>
-            <% classes += "not_this_month" %>
-            <% temp_current_day_of_month = num_days_prev_month - (-temp_current_day_of_month) %>
+            <% temp_current_day_of_month = @home_presenter.convert_negative_n_of_day_to_previous_month_day(temp_current_day_of_month) %>
           <% end %>
 
+          <% if @home_presenter.vacations_in_this_day?(current_day_of_month) %>
+            <% classes += ' with_events'  %>
+          <% end %>
 
           <td class="<%= classes %>">
             <div class="md-trigger" data-modal="modal-1" onclick="openModel(this)">
-              <%= (temp_current_day_of_month) %>
+              <%= temp_current_day_of_month %>
             </div>
           </td>
         <% end %>
