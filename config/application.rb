@@ -13,7 +13,8 @@ module LinkedTeam
     # -- all .rb files in that directory are automatically loaded.
 
     config.autoload_paths += [
-      "#{config.root}/app/serializers"
+      "#{config.root}/app/serializers",
+      "#{config.root}/app/processes"
     ]
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
@@ -21,7 +22,7 @@ module LinkedTeam
     # config.time_zone = 'Central Time (US & Canada)'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-    config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}', 'processes').to_s]
+    config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :pt
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
