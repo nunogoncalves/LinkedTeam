@@ -21,14 +21,17 @@ $.calendar = {
   dayClicked: function(dayElement) {
     var _this = $.calendar
     var $daySquare = $(dayElement);
-    var dateStr = $daySquare.data("year") + " - " + $daySquare.data("month") + " - " + $daySquare.data("day");
-
+    // var dateStr = $daySquare.data("year") + " - " + $daySquare.data("month") + " - " + $daySquare.data("day");
+    var dateStr = $daySquare.data("date");
+    console.log(dateStr);
     if (_this.mode == 'edit') {
-      if ($daySquare.hasClass("vacation_day_selected")) {
-        $daySquare.removeClass("vacation_day_selected");
+      if ($daySquare.hasClass("vacation_selected")) {
+        $daySquare.removeClass("vacation_selected");
         _this.removeDayFromWantedVacationsDays(dateStr);
+        $('.chosen_date_tr[data-chosen_date="' + dateStr + '"]').remove();
       } else {
-        $daySquare.addClass("vacation_day_selected");
+        $(".chosen_dates").append('<tr class="calendar_info chosen_date_tr" data-chosen_date=' + dateStr + '><td>' + dateStr + '</td></tr>');
+        $daySquare.addClass("vacation_selected");
         _this.selectedDays.push(dateStr)
       }
     }

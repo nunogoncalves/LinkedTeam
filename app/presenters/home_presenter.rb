@@ -85,6 +85,10 @@ class HomePresenter < ViewPresenter
     false
   end
 
+  def date_for_current_day_of_month(current_day_of_month)
+    date_for_vacation_check(current_day_of_month)
+  end
+
   def date_for_vacation_check(current_day_of_month)
     _d = date
     if day_before_beggining_of_month(current_day_of_month)
