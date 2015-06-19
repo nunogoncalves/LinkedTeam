@@ -17,4 +17,5 @@
 //= require calendar
 //= require sweetalert
 //= require handlebars
+//= require vboard
 //= require_tree .

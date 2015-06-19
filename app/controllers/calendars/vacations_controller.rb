@@ -4,6 +4,7 @@ module Calendars
       report = Calendars::Vacations::Api::Dashboard.run(user: current_user)
 
       if report.success?
+
       else
 
       end
