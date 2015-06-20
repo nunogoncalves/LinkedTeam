@@ -1,5 +1,60 @@
-.vboard-container {
-  width:  80%;
-  height: 200px;
-  margin: 0 auto;
+#vboard-table {
+  width:    75%;
+  margin:   0 auto;
+  overflow: auto;
+}
+
+.vboard-members-table {
+
+}
+
+.vboard-days-table {
+
+}
+
+.vboard-table-member-name-cell {
+  position:         absolute;
+  background-color: white;
+}
+
+.vboard-table-member-name-cell-shadow {
+  opacity: 0;
+}
+
+.vboard-group-button {
+  margin:           4px;
+  background-color: #EFEFEF;
+  border-radius:    4px;
+  border:           1px solid #D0D0D0;
+  float:            left;
+}
+
+.vboard-group-button label {
+  float: left;
+}
+
+.vboard-group-button label span {
+  text-align:    center;
+  padding:       3px 0px;
+  display:       block;
+  border-radius: 4px;
+}
+
+.vboard-group-button label input {
+  position: absolute;
+  top:      -20px;
+}
+
+.vboard-group-button input:hover + span {
+  background-color: #efE0E0;
+}
+
+.vboard-group-button input:checked + span {
+  background-color: #911;
+  color:            #fff;
+}
+
+.vboard-group-button input:checked:hover + span {
+  background-color: #c11;
+  color:            #fff;
 }

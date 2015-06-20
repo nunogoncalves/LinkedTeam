@@ -1,20 +1,33 @@
-<div class='vboard'></div>
+<% @groups = [OpenStruct.new(id: 1, name: 'engeneering'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes')] %>
+
+<div id='vboard-groups'>
+  <% @groups.each do |group| %>
+    <!-- <div class="vboard-group-button">
+       <label>
+          <input type="checkbox" value="<%= group.id %>" checked><span><%= group.name %></span>
+       </label>
+    </div> -->
+  <% end %>
+</div>
+
+<div id='vboard-table'>
+    <table>
+      <tr><td></td></tr>
+
+      <% @groups.each do |group| %>
+        <%# group.members.each do |member| %>
+          <tr>
+            <td class='vboard-table-member-name-cell'><%= 'member.name' %></td>
+            <td class='vboard-table-member-name-cell-shadow'><%= 'member.name' %></td>
+          </tr>
+        <%# end %>
+      <% end %>
+    </table>
+  </div>
+</div>
 
 <script>
-  // $(function() {
-  //   $('div.vboard').vboard({
-  //     data: [{
-  //       team: { id: name: },
-  //       elements: [{
-  //         user_id: ,
-  //         first_name:
-  //         last_name:
-  //         vacations: [{
-  //           id:
-  //           date:
-  //         }]
-  //       }]
-  //     }]
-  //   });
-  // })
+  $(function() {
+
+  });
 </script>

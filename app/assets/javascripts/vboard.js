@@ -4,15 +4,12 @@
   if (window.Vboard !== undefined) { return; }
 
   window.Vboard = function(element, options) {
-    this.element  = element;
     this.$element = $(element);
-    this.options  = options;
+    this.groups   = options.groups || {};
   };
 
   var VboardFunctions = {
     init: function() {
-      this.$element
-          .addClass('vboard-container');
     }
   };
 
