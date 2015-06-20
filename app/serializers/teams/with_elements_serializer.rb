@@ -3,7 +3,7 @@ module Teams
 
     attributes :id, :name
 
-    has_many :elements, serializer: Users::TeamElementSerializer
+    has_many :elements, serializer: Users::WithVacationsSerializer
 
   end
 end
