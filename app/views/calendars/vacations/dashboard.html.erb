@@ -1,33 +1,27 @@
-<% @groups = [OpenStruct.new(id: 1, name: 'engeneering'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes'), OpenStruct.new(id: 2, name: 'potatoes')] %>
+<% @groups = [OpenStruct.new(id: 1, name: 'engeneering', members: [OpenStruct.new(id: 1, name: 'Jun Hanamaki'), OpenStruct.new(id: 1, name: 'Nuno Goncalves')]), OpenStruct.new(id: 2, name: 'product', members: [OpenStruct.new(id: 3, name: 'Sandra Lagarto')])] %>
 
-<div id='vboard-groups'>
-  <% @groups.each do |group| %>
-    <!-- <div class="vboard-group-button">
-       <label>
-          <input type="checkbox" value="<%= group.id %>" checked><span><%= group.name %></span>
-       </label>
-    </div> -->
-  <% end %>
-</div>
-
-<div id='vboard-table'>
-    <table>
-      <tr><td></td></tr>
-
-      <% @groups.each do |group| %>
-        <%# group.members.each do |member| %>
-          <tr>
-            <td class='vboard-table-member-name-cell'><%= 'member.name' %></td>
-            <td class='vboard-table-member-name-cell-shadow'><%= 'member.name' %></td>
-          </tr>
-        <%# end %>
-      <% end %>
-    </table>
+<% @groups.each do |group| %>
+  <div class="vboard-group-button">
+     <label>
+        <input class='vboard-group-selector' type="checkbox" value="<%= group.id %>" checked><span><%= group.name %></span>
+     </label>
   </div>
-</div>
+<% end %>
+
+<table>
+  <% @groups.each do |group| %>
+    <% group.members.each do |member| %>
+      <tr><td><%= member.name %></td></tr>
+    <% end %>
+  <% end %>
+</table>
+
+<div id='vboard-table'></div>
 
 <script>
   $(function() {
 
+
+    $.vboard.init();
   });
 </script>

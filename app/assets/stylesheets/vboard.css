@@ -4,23 +4,6 @@
   overflow: auto;
 }
 
-.vboard-members-table {
-
-}
-
-.vboard-days-table {
-
-}
-
-.vboard-table-member-name-cell {
-  position:         absolute;
-  background-color: white;
-}
-
-.vboard-table-member-name-cell-shadow {
-  opacity: 0;
-}
-
 .vboard-group-button {
   margin:           4px;
   background-color: #EFEFEF;

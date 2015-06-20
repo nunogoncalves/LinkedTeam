@@ -1,3 +1,9 @@
+$.vboard = {
+  init: function() {
+
+  }
+}
+
 (function($) {
   'use strict';
 
