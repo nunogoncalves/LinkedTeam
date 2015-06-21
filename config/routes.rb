@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   resources :users
 
-  namespace :calendars, only: [:create] do
+  namespace :calendars do
     resources :vacations, only: [:index, :create]
 
     namespace :admin do
       resources :vacations, only: [:index]
-      resources :teams,     only: [:index]
+      resources :teams
     end
   end
 

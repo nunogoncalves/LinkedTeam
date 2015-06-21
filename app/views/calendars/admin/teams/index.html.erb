@@ -1,0 +1,22 @@
+<h1>Listing teams</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @teams.each do |team| %>
+      <tr>
+        <td><%= team.name %></td>
+        <td><%= link_to 'Mostrar', calendars_admin_team_path(team) %></td>
+        <td><%= link_to 'Editar', edit_calendars_admin_team_path(team) %></td>
+        <td><%= link_to 'Apagar', calendars_admin_team_path(team), method: :delete, data: { confirm: 'Pretende realmente apagar a equipa?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Criar nova equipa', new_calendars_admin_team_path %>

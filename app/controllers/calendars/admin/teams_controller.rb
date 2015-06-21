@@ -8,6 +8,12 @@ module Calendars
         @teams = report.data.teams
       end
 
+      def create
+      end
+
+      def destroy
+      end
+
     end
   end
 end
