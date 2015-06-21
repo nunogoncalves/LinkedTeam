@@ -16,9 +16,17 @@
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
+
+    <label>Gestores</label>
+    <% User.all.each do |user| %>
+      <%= "#{user.name} (#{user.email})" %>
+      <%= check_box_tag 'manager_ids[]', user.id %>
+    <% end %>
+
+    <label>Membros</label>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Criar equipa' %>
   </div>
 <% end %>
