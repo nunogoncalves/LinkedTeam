@@ -3,8 +3,11 @@ Rails.application.routes.draw do
 
   namespace :calendars, only: [:create] do
     resources :vacations, only: [:index, :create]
-    scope '/vacations' do
-      get 'dashboard' => 'vacations#dashboard', as: :vacations_dashboard
+
+    namespace :admin do
+      scope :vacations do
+        get 'dashboard' => 'vacations#dashboard', as: :vacations_dashboard
+      end
     end
   end
 

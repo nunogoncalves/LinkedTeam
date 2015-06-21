@@ -26,5 +26,17 @@ $.vboard = {
     });
 
     $('#vboard-days-table').append($tableContent);
+
+    $('#vboard-prev-vacation').on('click', function() {
+      $.vboard.jumpTo('prev');
+    });
+
+    $('#vboard-prev-vacation').on('click', function() {
+      $.vboard.jumpTo('next');
+    });
+  },
+
+  jumpTo: function() {
+
   }
 }
