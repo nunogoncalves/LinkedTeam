@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
     namespace :admin do
       scope :vacations do
-        get 'dashboard' => 'vacations#dashboard', as: :vacations_dashboard
+        get 'index' => 'vacations#index', as: :vacations
       end
     end
   end

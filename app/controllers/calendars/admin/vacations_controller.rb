@@ -2,7 +2,7 @@ module Calendars
   module Admin
     class VacationsController < ApplicationController
 
-      def dashboard
+      def index
         report = Vacations::Api::Dashboard.run(user: current_user)
 
         if report.success?
