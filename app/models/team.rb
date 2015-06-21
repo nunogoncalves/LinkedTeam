@@ -1,10 +1,10 @@
 class Team < ActiveRecord::Base
 
-  has_many :team_elements
+  has_many :team_members
   has_many :team_managers
 
-  has_many :elements,
-           through: :team_elements,
+  has_many :members,
+           through: :team_members,
            source:  :user
 
   has_many :managers,
@@ -12,5 +12,12 @@ class Team < ActiveRecord::Base
            source:  :user
 
   scope :managed_by, ->(user) { includes(:managers).where(users: { id: user.id }) }
+
+  def is_member?(user)
+
+  end
+
+  def is_manager?(user)
+  end
 
 end

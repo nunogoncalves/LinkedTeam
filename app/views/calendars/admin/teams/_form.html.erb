@@ -20,10 +20,14 @@
     <label>Gestores</label>
     <% User.all.each do |user| %>
       <%= "#{user.name} (#{user.email})" %>
-      <%= check_box_tag 'manager_ids[]', user.id %>
+      <%= check_box_tag 'manager_ids[]', user.id, team.is_manager?(user) ? true : false %>
     <% end %>
 
     <label>Membros</label>
+    <% User.all.each do |user| %>
+      <%= "#{user.name} (#{user.email})" %>
+      <%= check_box_tag 'manager_ids[]', user.id, team.is_member?(user) ? true : false %>
+    <% end %>
   </div>
 
   <div class="actions">
