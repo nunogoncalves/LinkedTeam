@@ -5,9 +5,8 @@ Rails.application.routes.draw do
     resources :vacations, only: [:index, :create]
 
     namespace :admin do
-      scope :vacations do
-        get 'index' => 'vacations#index', as: :vacations
-      end
+      resources :vacations, only: [:index]
+      resources :teams,     only: [:index]
     end
   end
 
