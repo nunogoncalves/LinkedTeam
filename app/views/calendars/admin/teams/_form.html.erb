@@ -3,7 +3,7 @@
 <%= form_for(@team, url: url, html: { method: method }) do |f| %>
   <% if @team.errors.any? %>
     <div id="error_explanation">
-      <h2>Corrija os seguintes <%= pluralize(@team.errors.count, "erro") %>:</h2>
+      <h2>Corrija os seguintes erros:</h2>
 
       <ul>
       <% @team.errors.full_messages.each do |message| %>

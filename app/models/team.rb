@@ -11,6 +11,8 @@ class Team < ActiveRecord::Base
            through: :team_managers,
            source:  :user
 
+  validates_presence_of :name
+
   scope :managed_by, ->(user) { includes(:managers).where(users: { id: user.id }) }
 
   def is_member?(user)
