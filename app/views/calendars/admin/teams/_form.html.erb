@@ -1,0 +1,24 @@
+<% url, method = @team.id.nil? ? [calendars_admin_teams_path, :post] : [calendars_admin_team_path(@team), :put] %>
+
+<%= form_for(@team, url: url, html: { method: method }) do |f| %>
+  <% if @team.errors.any? %>
+    <div id="error_explanation">
+      <h2>Corrija os seguintes <%= pluralize(@team.errors.count, "erro") %>:</h2>
+
+      <ul>
+      <% @team.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

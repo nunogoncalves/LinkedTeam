@@ -8,6 +8,13 @@ module Calendars
         @teams = report.data.teams
       end
 
+      def new
+        report = Teams::Api::New.run
+
+        @team  = report.data.team
+        @users = report.data.users
+      end
+
       def create
       end
 
