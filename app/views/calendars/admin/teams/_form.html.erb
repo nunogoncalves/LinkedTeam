@@ -20,7 +20,7 @@
     <label>Gestores</label><br/>
     <% User.all.each do |user| %>
       <label>
-        <%= check_box_tag 'manager_ids[]', user.id, @team.is_manager?(user) ? true : false %>
+        <%= check_box_tag 'team[manager_ids][]', user.id, @team.is_manager?(user) ? true : false %>
         <%= "#{user.name} (#{user.email})" %>
       </label>
       <br/>
@@ -29,7 +29,7 @@
     <label>Membros</label><br/>
     <% User.all.each do |user| %>
       <label>
-        <%= check_box_tag 'manager_ids[]', user.id, @team.is_member?(user) ? true : false %>
+        <%= check_box_tag 'team[member_ids][]', user.id, @team.is_member?(user) ? true : false %>
         <%= "#{user.name} (#{user.email})" %>
       </label>
       <br/>
