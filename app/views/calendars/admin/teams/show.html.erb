@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @team.name %>
+</p>
+
+<%= link_to 'Editar', edit_calendars_admin_team_path(@team) %> |
+<%= link_to 'Voltar', calendars_admin_teams_path %>
