@@ -11,17 +11,21 @@
 <table>
   <% @groups.each do |group| %>
     <% group.members.each do |member| %>
-      <tr><td><%= member.name %></td></tr>
+      <tr data-member-id='<%= member.id %>'><td><%= member.name %></td></tr>
     <% end %>
   <% end %>
 </table>
 
-<div id='vboard-table'></div>
+<div id='vboard-table-container'>
+  <table id='vboard-days-table'>
+  </table>
+</div>
+
+<button><<</button>
+<button>>></button>
 
 <script>
   $(function() {
-
-
     $.vboard.init();
   });
 </script>

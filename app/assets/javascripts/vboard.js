@@ -1,31 +1,19 @@
 $.vboard = {
-  init: function() {
+  init: function(options) {
+    var options = options || {},
+        margin  = options.margin || 2,
+        on   = moment(new Date()),
+        from = moment(on).subtract(margin, 'd'),
+        to   = moment(on).add(margin + 1, 'd'),
+        $weekdaysHtml = $('<tr>'),
+        $daysHtml     = $('');
 
+    var members = [{}, {}, {}];
+
+    for (var date = moment(from); date.isBefore(to); date.add(1, 'd')) {
+      $weekdaysHtml.append('<td>' + date.format('dd') + '</td>');
+    }
+
+    $('#vboard-days-table').append($weekdaysHtml);
   }
 }
-
-(function($) {
-  'use strict';
-
-  if (window.Vboard !== undefined) { return; }
-
-  window.Vboard = function(element, options) {
-    this.$element = $(element);
-    this.groups   = options.groups || {};
-  };
-
-  var VboardFunctions = {
-    init: function() {
-    }
-  };
-
-  $.extend(window.Vboard.prototype, VboardFunctions);
-
-  $.fn.vboard = function(options) {
-    if (this.length == 0) { return this; }
-
-    return this.each(function() {
-      new window.Vboard(this, options).init();
-    });
-  };
-})(jQuery);

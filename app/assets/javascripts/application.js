@@ -18,4 +18,8 @@
 //= require sweetalert
 //= require handlebars
 //= require vboard
+//= require moment
+//= require moment-locale-pt
 //= require_tree .
+
+moment.locale('pt');
