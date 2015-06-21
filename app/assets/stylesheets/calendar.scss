@@ -176,8 +176,50 @@ td {
 }
 
 
+#date_view_container {
+  height: 910px;
+}
+
+.vacations_sub {
+  background: rgba(0, 0, 0, 0) url("./submit_bg.jpg") no-repeat scroll 0 0 / cover ;
+  height: 300px;
+  position: relative;
+  width: 100%;
+  text-align: center;
+
+  p {
+    font-size: 12px;
+    color: #fff;
+    margin-top: 10px;
+  }
+}
+
+  button.submit_vacations {
+    background-color: rgba(1, 1, 1, 0);
+    border: 1px solid #fff;
+    border-radius: 35px;
+    color: #fff;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 120px;
+    outline: medium none;
+    padding: 5px 25px;
+    text-decoration: none;
+    transition: all 0.1s ease-out 0s;
 
 
+  &:hover{
+    background: #fff;
+    color: #34bbf8;
+    border: 1px solid #fff;
+  }
+
+  &:focus{outline: none;}
+}
+
+ 
 
 
 
