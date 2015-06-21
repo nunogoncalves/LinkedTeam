@@ -1,19 +1,30 @@
+'use strict'
+
 $.vboard = {
   init: function(options) {
     var options = options || {},
-        margin  = options.margin || 2,
+        margin  = options.margin || 30,
+
         on   = moment(new Date()),
         from = moment(on).subtract(margin, 'd'),
         to   = moment(on).add(margin + 1, 'd'),
-        $weekdaysHtml = $('<tr>'),
-        $daysHtml     = $('');
 
-    var members = [{}, {}, {}];
+        $tableContent = $('<tr>');
 
     for (var date = moment(from); date.isBefore(to); date.add(1, 'd')) {
-      $weekdaysHtml.append('<td>' + date.format('dd') + '</td>');
+      $tableContent.append('<td>' + date.format('dd') + '</td>');
     }
 
-    $('#vboard-days-table').append($weekdaysHtml);
+    $.each($('.vboard-group-members'), function(index, $element) {
+      var $days = $('<tr>');
+
+      for (var date = moment(from); date.isBefore(to); date.add(1, 'd')) {
+        $days.append('<td>' + date.format('D') + '</td>');
+      }
+
+      $tableContent = $tableContent.add($days);
+    });
+
+    $('#vboard-days-table').append($tableContent);
   }
 }
