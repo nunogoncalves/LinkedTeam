@@ -4,7 +4,7 @@
   overflow: auto;
 }
 
-.vboard-group-button {
+.vboard-team-button {
   margin:           4px;
   background-color: #EFEFEF;
   border-radius:    4px;
@@ -12,32 +12,32 @@
   float:            left;
 }
 
-.vboard-group-button label {
+.vboard-team-button label {
   float: left;
 }
 
-.vboard-group-button label span {
+.vboard-team-button label span {
   text-align:    center;
   padding:       3px 0px;
   display:       block;
   border-radius: 4px;
 }
 
-.vboard-group-button label input {
+.vboard-team-button label input {
   position: absolute;
   top:      -20px;
 }
 
-.vboard-group-button input:hover + span {
+.vboard-team-button input:hover + span {
   background-color: #efE0E0;
 }
 
-.vboard-group-button input:checked + span {
+.vboard-team-button input:checked + span {
   background-color: #911;
   color:            #fff;
 }
 
-.vboard-group-button input:checked:hover + span {
+.vboard-team-button input:checked:hover + span {
   background-color: #c11;
   color:            #fff;
 }

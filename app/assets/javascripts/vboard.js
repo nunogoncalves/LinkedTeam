@@ -15,7 +15,7 @@ $.vboard = {
       $tableContent.append('<td>' + date.format('dd') + '</td>');
     }
 
-    $.each($('.vboard-group-members'), function(index, $element) {
+    $.each($('.vboard-team-members'), function(index, $element) {
       var $days = $('<tr>');
 
       for (var date = moment(from); date.isBefore(to); date.add(1, 'd')) {
