@@ -1,7 +1,8 @@
 <% @teams.each do |team| %>
   <div class="vboard-team-button">
      <label>
-        <input class='vboard-team-selector' type="checkbox" value="<%= team.id %>" checked><span><%= team.name %></span>
+        <input class='vboard-team-selector' type="checkbox" value="<%= team.id %>" checked>
+        <span><%= team.name %></span>
      </label>
   </div>
 <% end %>
@@ -9,7 +10,9 @@
 <table>
   <% @teams.each do |team| %>
     <% team.members.each do |member| %>
-      <tr class='vboard-team-members' data-team-id='<%= team.id %>' data-member-id='<%= member.id %>'>
+      <tr class='vboard-team-members'
+          data-team-id='<%= team.id %>'
+          data-member-id='<%= member.id %>'>
         <td><%= member.name %></td>
       </tr>
     <% end %>

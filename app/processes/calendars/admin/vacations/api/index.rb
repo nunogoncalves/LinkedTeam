@@ -6,7 +6,7 @@ module Calendars
           include WFlow::Process
 
           data_reader :user
-          data_writer :teams
+          data_writer :teams, :vacations
 
           def perform
             self.teams = Team.managed_by(user)
