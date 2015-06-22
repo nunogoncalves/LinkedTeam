@@ -27,6 +27,12 @@ $.vboard = {
 
     $('#vboard-days-table').append($tableContent);
 
+    var $container = $('#vboard-table-container');
+
+    $container.animate({
+      scrollLeft: $container.offset().left
+    }, 0);
+
     $('#vboard-prev-vacation').on('click', function() {
       $.vboard.jumpTo('prev');
     });
