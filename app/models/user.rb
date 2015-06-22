@@ -3,8 +3,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :rememberable, :trackable,
          :omniauthable, :omniauth_providers => [:google_oauth2]
 
-  belongs_to :team
-
   has_many :vacations
 
   has_attached_file :avatar,

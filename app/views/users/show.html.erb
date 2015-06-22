@@ -17,7 +17,6 @@
       <th>Telemóvel</th>
       <th>Skype</th>
       <th>Data Nascimento</th>
-      <th>Equipa</th>
     </tr>
   </thead>
   <tbody>
@@ -28,11 +27,6 @@
       <td><%= @user.mobile_number %></td>
       <td><%= @user.skype_name %></td>
       <td><%= date_with_format(@user.birthdate) %></td>
-      <td>
-        <% if @user.team %>
-          <%= @user.team.name %>
-        <% end %>
-      </td>
     </tr>
   </tbody>
 </table>
