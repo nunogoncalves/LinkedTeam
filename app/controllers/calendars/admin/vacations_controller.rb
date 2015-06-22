@@ -3,10 +3,10 @@ module Calendars
     class VacationsController < ApplicationController
 
       def index
-        #report = Vacations::Api::Index.run(user: current_user)
+        report = Vacations::Api::Index.run(user: current_user)
 
-        if true #report.success?
-          #@teams_hash = ActiveModel::ArraySerializer.new(report.data.teams, each_serializer: Teams::WithMembersSerializer).as_json
+        if report.success?
+          @teams = report.data.teams
         else
 
         end
