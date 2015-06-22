@@ -9,6 +9,7 @@ $.vboard = {
         from = moment(on).subtract(margin, 'd'),
         to   = moment(on).add(margin + 1, 'd'),
 
+        $table        = $('#vboard-days-table'),
         $tableContent = $('<tr>');
 
     for (var date = moment(from); date.isBefore(to); date.add(1, 'd')) {
@@ -25,13 +26,15 @@ $.vboard = {
       $tableContent = $tableContent.add($days);
     });
 
-    $('#vboard-days-table').append($tableContent);
+    $table.append($tableContent);
 
     var $container = $('#vboard-table-container');
 
-    $container.animate({
-      scrollLeft: $container.offset().left
-    }, 0);
+    if ($table.width() > $container.width()) {
+      $container.animate({
+        scrollLeft: ($table.width() - $container.width()) / 2
+      }, 0);
+    }
 
     $('#vboard-prev-vacation').on('click', function() {
       $.vboard.jumpTo('prev');
