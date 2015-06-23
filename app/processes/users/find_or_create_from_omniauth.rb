@@ -1,28 +1,33 @@
 module Users
   class FindOrCreateFromOmniauth
+
     include WFlow::Process
 
     data_reader :omniauth
     data_writer :user
 
-    def setup
-      flow.failure!('omniauth is nil') if omniauth.nil?
-      flow.failure!('can only logon from linkedcare.com') if invalid_hosted_domain?
-    end
-
     def perform
-      self.user = User.where(provider: omniauth.provider, uid: omniauth.uid).first_or_create do |u|
-        u.provider = omniauth.provider
-        u.uid      = omniauth.uid
-        u.email    = omniauth.info.email
-        u.password = Devise.friendly_token[0,20]
-      end
+      self.user = find || create
     end
 
   protected
 
-    def invalid_hosted_domain?
-      omniauth['extra']['raw_info']['hd'] != 'linkedcare.com'
+    def find
+      User.where(provider: omniauth.provider, uid: omniauth.uid).first
     end
+
+    def create
+      User.create do |u|
+        u.provider         = omniauth.provider
+        u.uid              = omniauth.uid
+        u.first_name       = omniauth.info.first_name
+        u.last_name        = omniauth.info.last_name
+        u.email            = omniauth.info.email
+        u.password         = Devise.friendly_token[0,20]
+      end.tap do |u|
+        Calendars::Users::CreateFromUser.run(user: u)
+      end
+    end
+
   end
 end

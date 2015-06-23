@@ -50,7 +50,7 @@
                 <% vacations = @home_presenter.vacations_in_day(current_day_of_month) %>
                 <div class="day_vacation_users" style="display: none" data-users_count="<%= vacations.length %>">
                 <% vacations.each do |vacation| %>
-                  <div class="member_name"><%= vacation.user.name %></div>
+                  <div class="member_name"><%= vacation.calendars_user.name %></div>
                 <% end %>
                 </div>
               <% end %>

@@ -23,9 +23,8 @@ module Calendars
         v.year = date.year
         v.month = date.month
         v.day = date.day
-        v.day_of_the_week = date.wday
         v.state = 'to_review'
-        v.user_id = user_id
+        v.calendars_user_id = user_id
         v
       end
     end

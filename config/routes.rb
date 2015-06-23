@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     end
   end
 
-  devise_for :users, only: [:session, :omniauth_callbacks], controllers: { omniauth_callbacks: "omniauth_callbacks" }, path: '/'
+  devise_for :users, only: [:session, :omniauth_callbacks], controllers: { omniauth_callbacks: "users" }, path: '/'
   devise_for :users, only: [:registration, :password], path: 'devise'
 
   root 'application#home'

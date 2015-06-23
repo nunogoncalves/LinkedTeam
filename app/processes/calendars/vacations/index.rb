@@ -9,7 +9,7 @@ module Calendars
 
       def perform
         self.vacations = vacations.map do |vacation|
-          ::Vacations::IndexSerializer.new(vacation).serializable_hash
+          IndexSerializer.new(vacation).serializable_hash
         end
       end
 

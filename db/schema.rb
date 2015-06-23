@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 20150623204743) do
 
   create_table "calendars_annual_leaves", force: :cascade do |t|
     t.integer  "calendars_user_id"
+    t.integer  "year"
+    t.integer  "number_of_days"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
@@ -37,36 +39,6 @@ ActiveRecord::Schema.define(version: 20150623204743) do
     t.date     "date"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
-  end
-
-  create_table "team_managers", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "team_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "team_members", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "team_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "teams", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "user_vacation_days", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "year"
-    t.integer  "days"
-    t.integer  "accepted_days"
-    t.integer  "requested_days"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -99,17 +71,5 @@ ActiveRecord::Schema.define(version: 20150623204743) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-
-  create_table "vacations", force: :cascade do |t|
-    t.integer  "user_id"
-    t.date     "date"
-    t.integer  "year"
-    t.integer  "month"
-    t.integer  "day"
-    t.integer  "day_of_the_week"
-    t.string   "state"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
 
 end

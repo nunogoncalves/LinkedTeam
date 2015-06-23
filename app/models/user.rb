@@ -1,7 +1,5 @@
 class User < ActiveRecord::Base
 
-  has_many :vacations
-
   has_attached_file :avatar,
                     styles: {
                       large: "500x500>",

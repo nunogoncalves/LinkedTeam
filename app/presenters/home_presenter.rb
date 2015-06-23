@@ -5,7 +5,7 @@ class HomePresenter < ViewPresenter
 
   def initialize(params)
     @params = params
-    @vacations = Vacation.where(year: year)
+    @vacations = Calendars::Vacation.where(year: year)
   end
 
   def year_view?
