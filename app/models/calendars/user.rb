@@ -10,4 +10,6 @@ class Calendars::User < ActiveRecord::Base
            class:       Calendars::AnnualLeave,
            foreign_key: :calendars_user_id
 
+  delegate :name, to: :user
+
 end

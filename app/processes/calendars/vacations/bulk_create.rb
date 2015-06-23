@@ -3,17 +3,13 @@ module Calendars
     class BulkCreate
       include WFlow::Process
 
-      data_reader :vacations, :user_id
+      data_reader :vacations, :calendars_user_id
 
       def perform
         vacations.each do |basic_vacation|
           v = build_vacation(basic_vacation)
           v.save
         end
-      end
-
-      def user
-        User.find(user_id)
       end
 
       def build_vacation(date_str)
@@ -24,7 +20,7 @@ module Calendars
         v.month = date.month
         v.day = date.day
         v.state = 'to_review'
-        v.calendars_user_id = user_id
+        v.calendars_user_id = calendars_user_id
         v
       end
     end

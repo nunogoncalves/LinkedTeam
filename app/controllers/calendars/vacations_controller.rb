@@ -10,7 +10,7 @@ module Calendars
       Calendars::Vacations::BulkCreate.run(
         {
           vacations: params[:vacations],
-          user_id: current_user.id
+          calendars_user_id: current_calendars_user.id
           }
         )
       render json: {}
