@@ -1,6 +1,6 @@
 class Calendars::User < ActiveRecord::Base
 
-  belongs_to :user
+  belongs_to :user, class: ::User
 
   has_many :calendars_annual_leaves,
            class:       Calendars::AnnualLeave,
