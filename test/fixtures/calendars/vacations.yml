@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  calendars_user_id: 1
+  state: MyString
+  year: 1
+  month: 1
+  day: 1
+  date: 2015-06-23
+
+two:
+  calendars_user_id: 1
+  state: MyString
+  year: 1
+  month: 1
+  day: 1
+  date: 2015-06-23
