@@ -1,5 +1,7 @@
 class Calendars::User < ActiveRecord::Base
 
+  table_name = :users
+
   belongs_to :user, class: ::User
 
   has_many :calendars_vacations,
