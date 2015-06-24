@@ -16,12 +16,14 @@ $.calendar = {
     $.calendar.mode = "edit"
     $(element).text("x").addClass("edit_mode").removeClass("view_mode");
     $("#date_view_container").addClass("edit_mode").removeClass("view_mode");
+    $('.vacations_sub').prop('hidden', false);
   },
 
   _putInViewMode: function(element) {
     $.calendar.mode = "view"
     $(element).text("+").removeClass("edit_mode").addClass("view_mode");
     $("#date_view_container").addClass("view_mode").removeClass("edit_mode")
+    $('.vacations_sub').prop('hidden', true);
   },
 
   dayClicked: function(dayElement) {
