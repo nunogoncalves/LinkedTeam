@@ -12,6 +12,12 @@ class Calendars::User < ActiveRecord::Base
            class:       Calendars::AnnualLeave,
            foreign_key: :calendars_user_id
 
-  delegate :name, to: :user
+  def total_leave_days
+    calendars_annual_leaves.map(&:number_of_days).reduce(:+)
+  end
+
+  def remaining_leave_days
+    total_leave_days - calendars_vacations.count
+  end
 
 end

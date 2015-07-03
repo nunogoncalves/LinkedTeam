@@ -1,10 +1,13 @@
 <div class="topbar">
   <a class="inicio" href="/">Início</a>
 
-  <%= link_to 'Gerir férias', calendars_admin_vacations_path %>
-  <%= link_to 'Gerir equipas', calendars_admin_teams_path %>
+  <% if current_user.is_admin %>
+    <%= link_to 'Gerir férias', calendars_admin_vacations_path %>
+    <%= link_to 'Gerir equipas', calendars_admin_teams_path %>
+  <% end %>
 
   <a href="<%= users_path %>"> Colaboradores</a>
   <a href="<%= user_path(current_user) %>">Meu perfil</a>
+  
   <%= link_to "Sair", destroy_user_session_path, :method => "delete" %>
 </div>
