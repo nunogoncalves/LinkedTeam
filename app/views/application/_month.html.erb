@@ -44,7 +44,7 @@
             <% classes += ' with_events'  %>
           <% end %>
 
-          <td class="<%= classes %>" onclick="$.calendar.dayClicked(this);" data-date="<%= date_with_format(@home_presenter.date_for_current_day_of_month(current_day_of_month), '%Y-%m-%d') %>">
+          <td class="<%= classes %>" data-date="<%= date_with_format(@home_presenter.date_for_current_day_of_month(current_day_of_month), '%Y-%m-%d') %>">
             <div class="vacations_of_day_container">
               <% if has_vacations_in_day %>
                 <% vacations = @home_presenter.vacations_in_day(current_day_of_month) %>

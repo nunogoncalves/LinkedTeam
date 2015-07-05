@@ -1,3 +1,9 @@
+<div class="vacations"></div>
+<div class="remaining-days"></div>
+
+<button class="editButton" onclick="$.year_view.toggleEditMode();" data-in-edit-mode="false">Editar</button>
+<button class="submit" onclick="$.year_view.submit();" hidden>Submeter</button>
+
 <div class="year_container">
   <div class="trimester">
     <% (1..4).to_a.each do |month_ord| %>
@@ -23,3 +29,75 @@
     <% end %>
   </div>
 </div>
+
+<script>
+  $.year_view = {
+    initialize: function(config) {
+      var self   = this,
+          config = config || {};
+
+      this.vacations     = config.vacations || [];
+      this.remainingDays = config.remaining_days || 0;
+
+      this.refreshInfo();
+
+      $(".day").not(".not_this_month").on("click", function() {
+        self.toggleVacation(this);
+      });
+    },
+
+    refreshInfo: function() {
+      var $vacations = $(".vacations"),
+          diff = this.remainingDays - this.vacations.length;
+
+      $(".remaining-days").text(diff);
+
+      $vacations.empty();
+      $.each(this.vacations, function(index, date) {
+        $vacations.append("<p>" + date + "</p>")
+      });
+    },
+
+    inEditMode: function() {
+      return $(".editButton").data("in-edit-mode") == true;
+    },
+
+    toggleEditMode: function() {
+      if (this.inEditMode()) {
+        $(".submit").prop("hidden", true);
+        $(".editButton").data("in-edit-mode", false);
+        $(".editButton").text("Editar");
+      } else {
+        $(".submit").prop("hidden", false);
+        $(".editButton").data("in-edit-mode", true);
+        $(".editButton").text("Terminar");
+      }
+    },
+
+    toggleVacation: function(element) {
+      if (!this.inEditMode()) { return; }
+
+      var $element = $(element),
+          date     = $element.data("date"),
+          weekday  = moment(date).day();
+
+      if (weekday == 0 || weekday == 6) {
+        window.alert("não vale marcar férias aos sabados e domingo ;)");
+        return;
+      }
+
+      var indexOfDate = this.vacations.indexOf(date);
+      if (indexOfDate >= 0) {
+        this.vacations.splice(indexOfDate, 1);
+      } else {
+        this.vacations.push(date);
+      }
+
+      this.refreshInfo();
+    }
+  };
+
+  $(function() {
+    $.year_view.initialize();
+  });
+</script>
