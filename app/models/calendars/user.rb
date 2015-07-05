@@ -15,7 +15,7 @@ class Calendars::User < ActiveRecord::Base
   delegate :name, to: :user
 
   def total_leave_days
-    calendars_annual_leaves.map(&:number_of_days).reduce(:+)
+    calendars_annual_leaves.map(&:number_of_days).reduce(:+) || 0
   end
 
   def remaining_leave_days

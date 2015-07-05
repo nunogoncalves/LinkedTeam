@@ -1,9 +1,12 @@
 class HomePresenter < ViewPresenter
 
   attr_accessor :date
-  attr_reader :params
+  attr_reader :calendars_user, :params
 
-  def initialize(params)
+  delegate :remaining_leave_days, to: :calendars_user
+
+  def initialize(calendars_user, params)
+    @calendars_user = calendars_user
     @params = params
     @vacations = Calendars::Vacation.where(year: year)
   end
@@ -127,4 +130,5 @@ class HomePresenter < ViewPresenter
     end
     return current_day_of_month
   end
+
 end

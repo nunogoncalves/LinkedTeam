@@ -2,7 +2,7 @@
 <div class="remaining-days"></div>
 
 <button class="editButton" onclick="$.year_view.toggleEditMode();" data-in-edit-mode="false">Editar</button>
-<button class="submit" onclick="$.year_view.submit();" hidden>Submeter</button>
+<button class="submit" onclick="$.year_view.submitVacations();" hidden>Submeter</button>
 
 <div class="year_container">
   <div class="trimester">
@@ -37,7 +37,7 @@
           config = config || {};
 
       this.vacations     = config.vacations || [];
-      this.remainingDays = config.remaining_days || 0;
+      this.remainingDays = config.remainingDays || 0;
 
       this.refreshInfo();
 
@@ -98,6 +98,8 @@
   };
 
   $(function() {
-    $.year_view.initialize();
+    $.year_view.initialize({
+      remainingDays: <%= @home_presenter.remaining_leave_days %>
+    });
   });
 </script>
