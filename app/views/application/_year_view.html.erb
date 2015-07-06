@@ -94,6 +94,19 @@
       }
 
       this.refreshInfo();
+    },
+
+    submitVacations: function() {
+
+
+      $.ajax({
+        url:  "bulk_update",
+        type: "POST"
+        date: {
+          add:
+          remove:
+        }
+      });
     }
   };
 

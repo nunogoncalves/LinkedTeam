@@ -16,5 +16,9 @@ module Calendars
       render json: {}
     end
 
+    def bulk_update
+      Calendars::Vacations::BulkUpdate.run
+    end
+
   end
 end
