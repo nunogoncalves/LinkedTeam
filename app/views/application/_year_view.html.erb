@@ -136,12 +136,17 @@
     },
 
     submitVacations: function() {
+      if (this.vacationsToRequest.length == 0 && this.vacationsToCancel.length == 0) {
+        document.alert("não tem alterações para submeter");
+        return;
+      }
+
       $.ajax({
-        url:  "bulk_update",
+        url:  "/calendars/vacations/bulk_update",
         type: "POST",
         date: {
-          add:    [],
-          cancel: []
+          request: this.vacationsToRequest,
+          cancel:  this.vacationsToCancel
         }
       });
     }
