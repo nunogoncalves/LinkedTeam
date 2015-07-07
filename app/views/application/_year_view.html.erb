@@ -1,4 +1,13 @@
-<div class="vacations"></div>
+<div>
+  Vacations to request
+  <div class="vacations-request"></div>
+</div>
+
+<div>
+  Vacations to cancel
+  <div class="vacations-cancel"></div>
+</div>
+
 <div class="remaining-days"></div>
 
 <button class="editButton" onclick="$.year_view.toggleEditMode();" data-in-edit-mode="false">Editar</button>
@@ -36,30 +45,16 @@
       var self   = this,
           config = config || {};
 
-      this.vacations     = config.vacations || [];
-      this.remainingDays = config.remainingDays || 0;
+      this.remainingDays      = config.remainingDays || 0;
+      this.vacations          = config.vacations || [];
+      this.vacationsToRequest = [];
+      this.vacationsToCancel  = [];
 
       this.refreshInfo();
 
       $(".day").not(".not_this_month").on("click", function() {
-        self.toggleVacation(this);
+        self.onDateClick(this);
       });
-    },
-
-    refreshInfo: function() {
-      var $vacations = $(".vacations"),
-          diff = this.remainingDays - this.vacations.length;
-
-      $(".remaining-days").text(diff);
-
-      $vacations.empty();
-      $.each(this.vacations, function(index, date) {
-        $vacations.append("<p>" + date + "</p>")
-      });
-    },
-
-    inEditMode: function() {
-      return $(".editButton").data("in-edit-mode") == true;
     },
 
     toggleEditMode: function() {
@@ -74,7 +69,29 @@
       }
     },
 
-    toggleVacation: function(element) {
+    refreshInfo: function() {
+      var $request = $(".vacations-request"),
+          $cancel  = $(".vacations-cancel"),
+          diff       = this.remainingDays + this.vacationsToCancel.length - this.vacationsToRequest.length;
+
+      $(".remaining-days").text(diff);
+
+      $request.empty();
+      $.each(this.vacationsToRequest, function(index, date) {
+        $request.append("<p>" + date + "</p>");
+      });
+
+      $cancel.empty();
+      $.each(this.vacationsToCancel, function(index, date) {
+        $cancel.append("<p>" + date + "</p>");
+      });
+    },
+
+    inEditMode: function() {
+      return $(".editButton").data("in-edit-mode") == true;
+    },
+
+    onDateClick: function(element) {
       if (!this.inEditMode()) { return; }
 
       var $element = $(element),
@@ -86,25 +103,45 @@
         return;
       }
 
-      var indexOfDate = this.vacations.indexOf(date);
-      if (indexOfDate >= 0) {
-        this.vacations.splice(indexOfDate, 1);
-      } else {
-        this.vacations.push(date);
-      }
+      this.requestOrCancelVacation($element, date);
 
       this.refreshInfo();
     },
 
+    requestOrCancelVacation: function($element, date) {
+      var index = this.vacationsToRequest.indexOf(date);
+      if (index >= 0) {
+        this.vacationsToRequest.splice(index, 1);
+        $element.css("background-color", "");
+
+        return;
+      }
+
+      index = this.vacationsToCancel.indexOf(date);
+      if (index >= 0) {
+        this.vacationsToCancel.splice(index, 1);
+        $element.css("background-color", "");
+
+        return;
+      }
+
+      index = this.vacations.indexOf(date);
+      if (index >= 0) {
+        this.vacationsToCancel.push(date);
+        $element.css("background-color", "red");
+      } else {
+        this.vacationsToRequest.push(date);
+        $element.css("background-color", "blue");
+      }
+    },
+
     submitVacations: function() {
-
-
       $.ajax({
         url:  "bulk_update",
-        type: "POST"
+        type: "POST",
         date: {
-          add:
-          remove:
+          add:    [],
+          cancel: []
         }
       });
     }
